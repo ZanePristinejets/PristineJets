@@ -1,1 +1,43 @@
+# Node modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Production build
+build/
+dist/
+
+# TypeScript
+*.tsbuildinfo
+
+# Logs
+*.log
+yarn-error.log
+npm-debug.log*
+
+# OS/Editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Env files
+.env*
+
+# Coverage
+coverage/
+
+# Misc
+public/*.tmp
+public/*.bak
+
+# Ignore lock files if using only one package manager
+# Uncomment if you want to ignore lock files
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
 node_modules
