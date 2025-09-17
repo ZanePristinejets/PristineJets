@@ -1,2 +1,16 @@
 @import "tailwindcss";
 @tailwind utilities;
+
+html, body {
+  font-family: var(--font-avenir), system-ui, sans-serif;
+}
+
+/* Custom serif utilities */
+.font-serif {
+  font-family: var(--font-didot), Georgia, serif;
+}
+
+.font-serif-italic {
+  font-family: var(--font-didot), Georgia, serif;
+  font-style: italic;
+}
