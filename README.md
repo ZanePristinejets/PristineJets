@@ -1,74 +1,36 @@
-# Pristine Jets Landing Site
-
-Marketing / lead generation landing site for **Pristine Jets** built with:
-
-- Next.js (App Router)
-- TypeScript
-- Tailwind CSS
-- ESLint + Prettier
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-Install dependencies:
-
-```bash
-npm install
-```
-
-Run the dev server:
+First, run the development server:
 
 ```bash
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open http://localhost:3000 in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Available Scripts
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-| Script | Purpose |
-| ------ | ------- |
-| `npm run dev` | Start development server |
-| `npm run build` | Production build |
-| `npm start` | Start production server (after build) |
-| `npm run lint` | Run ESLint |
-| `npm run type-check` | TypeScript diagnostics |
-| `npm run format` | Prettier format all files |
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Structure
+## Learn More
 
-```
-src/
-  app/           # App Router entry (layout, page)
-  components/    # Reusable UI sections (Hero, Features, CTA, Footer)
-tailwind.config.ts
-postcss.config.js
-```
+To learn more about Next.js, take a look at the following resources:
 
-## Tailwind
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Configuration lives in `tailwind.config.ts`. Global styles & custom layers in `src/app/globals.css`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-> Note: Newer Tailwind versions separate the PostCSS plugin into `@tailwindcss/postcss`. Our `postcss.config.js` uses:
-> ```js
-> module.exports = { plugins: { '@tailwindcss/postcss': {}, autoprefixer: {} } };
-> ```
-> If you upgrade Tailwind and encounter a build error referencing direct `tailwindcss` plugin usage, ensure this dependency is installed: `npm i -D @tailwindcss/postcss`.
+## Deploy on Vercel
 
-## Next Steps / Roadmap (suggested)
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Connect CTA form to backend / CRM (HubSpot, Salesforce, etc.)
-- Add analytics (Plausible / GA4)
-- Add fleet gallery & aircraft detail modal
-- Implement dark mode toggle
-- Accessibility & performance pass (Lighthouse)
-
-## Deployment
-
-You can deploy easily to Vercel (recommended). Ensure the Node version in `package.json` engines is supported.
-
-## License
-
-Private / All rights reserved (adjust if you decide to open source).
-
----
-Generated scaffold. Replace placeholder content (logos, copy) before production.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
