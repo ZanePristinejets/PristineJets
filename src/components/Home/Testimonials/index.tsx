@@ -1,0 +1,114 @@
+"use client";
+
+import { useState } from "react";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import Image from "next/image";
+
+  const testimonials = [
+    {
+      id: 1,
+      quote:
+        '<span class="font-bold">Pristine Jets</span> transformed our aircraft interior with their deep clean service -every surface felt <span class="font-bold">fresh, spotless,</span> and truly <span class="font-bold">first-class</span>. Their attention to detail is unmatched.',
+      name: "Stella Doe",
+      subtitle: "FUSCE FINIBUS IACULIS VELIT",
+      image: "/imgs/professional-woman-smiling.png",
+    },
+    {
+      id: 2,
+      quote:
+        '<span class="font-bold">Outstanding</span> service and attention to <span class="font-bold">detail.</span> The team exceeded our expectations in <span class="font-bold">every way possible.</span>',
+      name: "John Smith",
+      subtitle: "LOREM IPSUM DOLOR SIT",
+      image: "/imgs/professional-man-suit.png",
+    },
+  ];
+
+export function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const currentTestimonial = testimonials[currentIndex];
+
+  return (
+    <section className="min-h-[90vh] w-full flex items-center justify-center">
+      <div className="w-full flex flex-col items-center justify-center mx-auto text-center relative space-y-4">
+        {/* Header */}
+        <div className="pb-14">
+          <h2 className="text-[40px] font-serif tracking-[12px] text-gray-800 mb-1">
+            WHAT CLIENT'S SAY?
+          </h2>
+          <div className="w-full h-px bg-gray-800 mx-auto"></div>
+        </div>
+
+        {/* Quote Icon */}
+        <div className="">
+          <Quote
+            className="w-10 h-10 text-[#896452]  mx-auto"
+            fill="currentColor"
+          />
+        </div>
+
+        {/* Testimonial Content */}
+        <div className="mb-12">
+          <blockquote className="text-[24px] leading-relaxed text-gray-800 font-semibold max-w-2xl mx-auto min-h-[125px]">
+            &ldquo;<span dangerouslySetInnerHTML={{ __html: currentTestimonial.quote }} />&rdquo;
+          </blockquote>
+        </div>
+
+        {/* Client Info centered, arrows aligned to content edges */}
+        <div className="relative w-full max-w-3xl mx-auto px-14 md:px-16">
+          <div className="flex items-center justify-center gap-2">
+            <div className="hidden sm:block flex-1 h-px bg-gray-200"></div>
+
+            <div className="w-14 h-14 rounded-full overflow-hidden">
+              <Image
+                src={currentTestimonial.image || "/placeholder.svg"}
+                alt={currentTestimonial.name}
+                className="w-full h-full object-cover"
+                width={80}
+                height={80}
+              />
+            </div>
+            <div className="text-left">
+              <h3 className="text-lg font-semibold text-gray-800">
+                {currentTestimonial.name}
+              </h3>
+              <p className="text-sm text-gray-500 tracking-wider">
+                {currentTestimonial.subtitle}
+              </p>
+            </div>
+            <div className="hidden sm:block flex-1 h-px bg-gray-200"></div>
+          </div>
+          
+
+          {/* Navigation Arrows positioned to match testimonial width */}
+          <button
+            onClick={goToPrevious}
+            aria-label="Previous testimonial"
+            className="absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full hover:cursor-pointer hover:bg-[#bd843b] hover:text-white border-gray-300 text-[#bd843b] border flex items-center justify-center transition-all duration-300"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={goToNext}
+            aria-label="Next testimonial"
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full hover:cursor-pointer hover:bg-[#bd843b] hover:text-white border-gray-300 text-[#bd843b] border flex items-center justify-center transition-all duration-300"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
