@@ -22,7 +22,7 @@ export default function Services() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 max-w-4xl mx-auto">
           {/* Wet/Dry Washes */}
-          <div className="border border-gray-200 p-12 group hover:cursor-pointer hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
+          <div className="border border-gray-200 p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
             <div className="mb-4">
               <Droplets className="w-10 h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />
             </div>
@@ -37,7 +37,7 @@ export default function Services() {
           </div>
 
           {/* Wax/Ceramic Protection */}
-          <div className="border border-gray-200 p-12 group hover:cursor-pointer hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
+          <div className="border border-gray-200 p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
             <div className="mb-4">
               <BrickWallShield className="w-10 h-10 group-hover:text-[#bd843b] transition-all duration-300 stroke-1" />
             </div>
@@ -52,7 +52,7 @@ export default function Services() {
           </div>
 
           {/* Brightwork Polishing */}
-          <div className="border border-gray-200 p-12 group hover:cursor-pointer hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
+          <div className="border border-gray-200 p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
             <div className="mb-4">
               <Sparkle className="w-10 h-10 group-hover:text-[#bd843b] transition-all duration-300 stroke-1" />
             </div>
@@ -67,7 +67,7 @@ export default function Services() {
           </div>
 
           {/* De-Ice Boot Treatment */}
-          <div className="border border-gray-200 p-12 group hover:cursor-pointer hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
+          <div className="border border-gray-200 p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left">
             <div className="mb-4">
               <Snowflake className="w-10 h-10 group-hover:text-[#bd843b] transition-all duration-300 stroke-1" />
             </div>
