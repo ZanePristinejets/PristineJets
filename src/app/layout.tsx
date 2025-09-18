@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
 
 const avenir = localFont({
   src: [
@@ -36,7 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${avenir.variable} ${didot.variable}`}>{children}</body>
+      <body className={`${avenir.variable} ${didot.variable}`}>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <header className="absolute w-full flex justify-between items-center p-6">
+    <header className="absolute w-full flex justify-between items-center p-6 z-10">
       {/* Logo */}
       <div className="ml-64 hover:cursor-pointer">
         <Image src="/imgs/logo.svg" width={65} height={65} alt="Logo" />

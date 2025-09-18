@@ -1,4 +1,3 @@
-import Header from "./Header";
 
 export default function Home() {
   return (
@@ -16,8 +15,6 @@ export default function Home() {
 
       {/* Content */}
       <div className="relative min-h-screen w-full flex flex-col">
-        {/* Header */}
-        <Header />
 
         {/* Main Content - centered */}
         <div className="flex-1 space-y-3 flex flex-col items-center justify-center text-center">
