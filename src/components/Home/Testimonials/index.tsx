@@ -23,7 +23,7 @@ import Image from "next/image";
     },
   ];
 
-export function Testimonials() {
+export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToPrevious = () => {
