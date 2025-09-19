@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section className="min-h-screen relative overflow-hidden">
+    <section className="min-h-[65vh] md:min-h-screen relative overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-[70%_center] md:bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/imgs/about-background.jpg')",
         }}
@@ -13,18 +13,22 @@ export default function About() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col min-h-screen px-36 pt-20">
+      <div className="relative z-10 flex flex-col min-h-[65vh] md:min-h-screen px-6 sm:px-10 lg:px-36 pt-16 lg:pt-20">
         <div className="max-w-2xl">
           {/* main heading */}
           <div className="flex flex-col">
-            <span className="text-[#bd843b] text-sm tracking-[7px]">ABOUT</span>
-            <h1 className="font-serif text-white text-[45px] tracking-[20px]">PRISTINE JETS</h1>
+            <span className="text-[#bd843b] text-xs sm:text-sm tracking-[4px] sm:tracking-[7px]">
+              ABOUT
+            </span>
+            <h1 className="font-serif text-white text-[32px] sm:text-[38px] lg:text-[45px] tracking-[10px] sm:tracking-[16px] lg:tracking-[20px]">
+              PRISTINE JETS
+            </h1>
           </div>
         </div>
 
         {/* Bottom Right Content */}
-        <div className="absolute bottom-16 right-36 max-w-xs">
-          <p className="text-gray-100 text-sm leading-relaxed mb-2">
+        <div className="absolute bottom-10 right-6 sm:right-10 lg:bottom-16 lg:right-36 max-w-xs w-[calc(100%-3rem)] sm:w-auto">
+          <p className="text-gray-100 text-sm sm:text-sm leading-relaxed mb-2">
             Sed tempus rhoncus magna, in venenatis ligula faucibus eget. Mauris
             ullamcorper arcu lectus, in consectetur eros semper fermentum.
             Quisque urna ex, fermentum ut massa vitmus.
