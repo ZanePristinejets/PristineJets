@@ -13,9 +13,10 @@ export default function Services() {
             OUR SERVICES
           </h1>
           <p className="text-gray-600 max-w-xl mx-auto text-[13px] sm:text-[12px] leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            tincidunt auctor urna. Aenean orci tellus, luctus sed velit. Nam
-            fringilla sagittis mauris id sollicitudin.
+            At Pristine Jets, every detail matters. From cabin to fuselage, our
+            expert crew delivers precision cleaning, polishing, and protection
+            that keep your aircraft in top condition. Available 24/7 in Bozeman,
+            we bring meticulous care wherever your jet is.
           </p>
         </div>
 
@@ -30,9 +31,9 @@ export default function Services() {
               WET/DRY WASHES
             </h3>
             <p className="text-gray-600 text-[13px] leading-relaxed">
-              Lorem ipsum dolor sit amet adipiscing elit donec auctor urna velit
-              semean orci tellus a aliquet vel justo Nam fringilla mauris id
-              fringilla ut neque sollicitudin.
+              Thorough exterior cleaning tailored to your aircraft and
+              conditions - from quick dry washes to full wet treatments for a
+              spotless finish.
             </p>
           </div>
 
@@ -45,9 +46,8 @@ export default function Services() {
               WAX/CERAMIC PROTECTION
             </h3>
             <p className="text-gray-600 text-[13px] leading-relaxed">
-              Sed tellus lorem suscipit at neque in fringilla sagittis est velit
-              maecenas gravida risus id placerat ultrices, felis nunc molestie
-              eros id posuere risus mauris ac ex.
+              Long-lasting protection against the elements with premium wax and
+              ceramic coatings that preserve shine and safeguard your paint.
             </p>
           </div>
 
@@ -60,9 +60,8 @@ export default function Services() {
               BRIGHTWORK POLISHING
             </h3>
             <p className="text-gray-600 text-[13px] leading-relaxed">
-              Sed tellus lorem suscipit at neque in fringilla sagittis est velit
-              maecenas gravida risus id placerat ultrices, felis nunc molestie
-              eros id posuere risus mauris ac ex.
+              Expert polishing for leading edges, spinners, and brightwork -
+              restoring a mirror-like finish that reflects true excellence.
             </p>
           </div>
 
@@ -75,9 +74,8 @@ export default function Services() {
               DE-ICE BOOT TREATMENT
             </h3>
             <p className="text-gray-600 text-[13px] leading-relaxed">
-              Lorem ipsum dolor sit amet adipiscing elit donec auctor urna velit
-              semean orci tellus a aliquet vel justo Nam fringilla mauris id
-              fringilla ut neque sollicitudin.
+              Specialized cleaning and conditioning of de-ice boots to maximize
+              performance, reduce wear, and maintain safety in all seasons.
             </p>
           </div>
         </div>
