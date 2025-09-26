@@ -47,7 +47,7 @@ export default function About() {
                 More than just a detailing company, Pristine Jets is a trusted
                 partner in aircraft care. We understand the investment your jet
                 represents, and our mission is to keep it operating and
-                presenting at its very best—ready for flight at any hour. With
+                presenting at its very best - ready for flight at any hour. With
                 precision, reliability, and dedication, we keep your aircraft
                 truly pristine, inside and out.
               </p>

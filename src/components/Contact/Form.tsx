@@ -8,7 +8,13 @@ export default function Form() {
         GET IN TOUCH
       </h2>
 
-      <form className="space-y-4 sm:space-y-5 w-full">
+      <form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        className="space-y-4 sm:space-y-5 w-full"
+      >
+        <input type="hidden" name="contact" value="contact" />
         {/* Name Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
           <div className="w-full">
