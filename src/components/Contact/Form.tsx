@@ -8,28 +8,24 @@ type Fields = {
   firstName: string;
   lastName: string;
   email: string;
-  phone: string;    // optional, US 10 digits if present
+  phone: string; // optional
   message: string;
 };
 
 type Errors = Partial<Record<keyof Fields, string>>;
 
-function onlyDigits(value: string) {
-  return value.replace(/\D/g, "");
+function onlyDigits(v: string) {
+  return v.replace(/\D/g, "");
 }
-
-function formatUSPhone(value: string) {
-  const d = onlyDigits(value).slice(0, 10);
+function formatUSPhone(v: string) {
+  const d = onlyDigits(v).slice(0, 10);
   if (d.length <= 3) return d;
   if (d.length <= 6) return `(${d.slice(0, 3)}) ${d.slice(3)}`;
   return `(${d.slice(0, 3)}) ${d.slice(3, 6)}-${d.slice(6)}`;
 }
-
 function isValidEmail(v: string) {
-  // “text@text.text” shape; simple and effective
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 }
-
 function encode(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
@@ -43,12 +39,13 @@ export default function Form() {
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "ok" | "err">("idle");
-  const firstErrorRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null);
+  const [status, setStatus] = useState<"idle" | "submitting" | "ok" | "err">(
+    "idle"
+  );
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   function validate(values: Fields): Errors {
     const e: Errors = {};
-
     if (!values.firstName || values.firstName.trim().length < 3) {
       e.firstName = "First name must be at least 3 characters.";
     }
@@ -73,27 +70,39 @@ export default function Form() {
     return e;
   }
 
-  function setField<K extends keyof Fields>(key: K, value: string) {
-    setFields((prev) => ({ ...prev, [key]: value }));
+  function setField<K extends keyof Fields>(k: K, v: string) {
+    setFields((prev) => ({ ...prev, [k]: v }));
   }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("submitting");
-    const v = { ...fields };
 
+    const v = { ...fields };
     const eMap = validate(v);
     setErrors(eMap);
 
     if (Object.keys(eMap).length > 0) {
       setStatus("idle");
-      // focus first invalid field
-      setTimeout(() => firstErrorRef.current?.focus(), 0);
+      // focus first invalid field without using 'any'
+      const order: (keyof Fields)[] = [
+        "firstName",
+        "lastName",
+        "email",
+        "phone",
+        "message",
+      ];
+      const firstKey = order.find((k) => eMap[k]);
+      if (firstKey && formRef.current) {
+        const el = formRef.current.querySelector<HTMLElement>(
+          `[name="${firstKey}"]`
+        );
+        el?.focus();
+      }
       return;
     }
 
     try {
-      // Send to Netlify’s detection endpoint
       await fetch("/__forms.html", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -108,17 +117,13 @@ export default function Form() {
           redirect: "/contact/success",
         }),
       });
-
       setStatus("ok");
-      // Option A: inline success message (stays on page)
-      // Option B (recommended): redirect to success page
       window.location.href = "/contact/success";
     } catch {
       setStatus("err");
     }
   }
 
-  // Helpers to wire up error styles and refs
   function errProps<K extends keyof Fields>(key: K) {
     const isErr = Boolean(errors[key]);
     return {
@@ -127,8 +132,7 @@ export default function Form() {
       className:
         "w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base " +
         (isErr ? "border-red-500 ring-1 ring-red-400" : ""),
-      ref: isErr && !firstErrorRef.current ? (firstErrorRef as any) : undefined,
-    };
+    } as const;
   }
 
   return (
@@ -137,8 +141,14 @@ export default function Form() {
         GET IN TOUCH
       </h2>
 
-      <form name="contact" noValidate onSubmit={onSubmit} className="space-y-4 sm:space-y-5 w-full">
-        {/* Netlify Forms requirements (kept in POST body too) */}
+      <form
+        ref={formRef}
+        name="contact"
+        noValidate
+        onSubmit={onSubmit}
+        className="space-y-4 sm:space-y-5 w-full"
+      >
+        {/* Netlify hidden fields (kept in body as well) */}
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="redirect" value="/contact/success" />
         <p className="hidden">
@@ -160,7 +170,12 @@ export default function Form() {
               {...errProps("firstName")}
             />
             {errors.firstName && (
-              <p id="firstName-error" className="mt-1 text-[11px] pt-[1px] text-red-600">{errors.firstName}</p>
+              <p
+                id="firstName-error"
+                className="mt-1 text-[11px] pt-[1px] text-red-600"
+              >
+                {errors.firstName}
+              </p>
             )}
           </div>
           <div className="w-full">
@@ -174,7 +189,12 @@ export default function Form() {
               {...errProps("lastName")}
             />
             {errors.lastName && (
-              <p id="lastName-error" className="mt-1 text-[11px] pt-[1px] text-red-600">{errors.lastName}</p>
+              <p
+                id="lastName-error"
+                className="mt-1 text-[11px] pt-[1px] text-red-600"
+              >
+                {errors.lastName}
+              </p>
             )}
           </div>
         </div>
@@ -192,7 +212,12 @@ export default function Form() {
               {...errProps("email")}
             />
             {errors.email && (
-              <p id="email-error" className="mt-1 text-[11px] pt-[1px] text-red-600">{errors.email}</p>
+              <p
+                id="email-error"
+                className="mt-1 text-[11px] pt-[1px] text-red-600"
+              >
+                {errors.email}
+              </p>
             )}
           </div>
           <div className="w-full">
@@ -206,7 +231,12 @@ export default function Form() {
               {...errProps("phone")}
             />
             {errors.phone && (
-              <p id="phone-error" className="mt-1 text-[11px] pt-[1px] text-red-600">{errors.phone}</p>
+              <p
+                id="phone-error"
+                className="mt-1 text-[11px] pt-[1px] text-red-600"
+              >
+                {errors.phone}
+              </p>
             )}
           </div>
         </div>
@@ -230,26 +260,30 @@ export default function Form() {
           />
           <div className="flex justify-between text-[11px] pt-[1px]">
             {errors.message ? (
-              <p id="message-error" className="text-red-600">{errors.message}</p>
+              <p id="message-error" className="text-red-600">
+                {errors.message}
+              </p>
             ) : (
-              <span className="text-gray-500 text-[11px] pt-[1px]">{fields.message.length}/2000</span>
+              <span className="text-gray-500 text-[11px] pt-[1px]">
+                {fields.message.length}/2000
+              </span>
             )}
           </div>
         </div>
 
-        {/* Submit button */}
+        {/* Submit */}
         <div className="flex justify-center pt-3">
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="bg-[#bd843b] hover:bg-[#a76c3b] disabled:opacity-60 disabled:cursor-not-allowed text-white w-full sm:w-auto px-7 py-2.5 h-auto text-[11px] pt-[1px] tracking-[3px] transition-all duration-300"
+            className="bg-[#bd843b] hover:bg-[#a76c3b] disabled:opacity-60 disabled:cursor-not-allowed text-white w-full sm:w-auto px-7 py-2.5 h-auto text-sm tracking-[3px] transition-all duration-300"
           >
             {status === "submitting" ? "SENDING..." : "CONTACT US"}
           </button>
         </div>
 
         {status === "err" && (
-          <p className="text-center text-red-600 text-[11px] pt-[1px] mt-2">
+          <p className="text-center text-red-600 text-sm mt-2">
             Something went wrong. Please try again.
           </p>
         )}
