@@ -11,8 +11,7 @@ export default function Form() {
       <form
         name="contact"
         method="POST"
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        action="/__forms.html"
         className="space-y-4 sm:space-y-5 w-full"
       >
         {/* Netlify Forms requirements */}
@@ -71,6 +70,7 @@ export default function Form() {
             className="w-full bg-white border-gray-300 text-gray-700 placeholder:text-gray-500 resize-none text-base"
           />
         </div>
+        <input type="hidden" name="redirect" value="/contact/success" />
 
         {/* Submit button */}
         <div className="flex justify-center pt-3">
