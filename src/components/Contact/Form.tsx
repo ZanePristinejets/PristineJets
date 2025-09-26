@@ -12,14 +12,22 @@ export default function Form() {
         name="contact"
         method="POST"
         data-netlify="true"
+        data-netlify-honeypot="bot-field"
         className="space-y-4 sm:space-y-5 w-full"
       >
-        <input type="hidden" name="contact" value="contact" />
+        {/* Netlify Forms requirements */}
+        <input type="hidden" name="form-name" value="contact" />
+        <p className="hidden">
+          <label>
+            Dont fill this out if youre human: <input name="bot-field" />
+          </label>
+        </p>
         {/* Name Fields */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
           <div className="w-full">
             <Input
               type="text"
+              name="firstName"
               placeholder="First Name"
               className="w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base"
             />
@@ -27,6 +35,7 @@ export default function Form() {
           <div className="w-full">
             <Input
               type="text"
+              name="lastName"
               placeholder="Last Name"
               className="w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base"
             />
@@ -38,6 +47,7 @@ export default function Form() {
           <div className="w-full">
             <Input
               type="email"
+              name="email"
               placeholder="Email Address"
               className="w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base"
             />
@@ -45,6 +55,7 @@ export default function Form() {
           <div className="w-full">
             <Input
               type="tel"
+              name="phone"
               placeholder="Phone Number"
               className="w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base"
             />
@@ -54,6 +65,7 @@ export default function Form() {
         {/* Message */}
         <div>
           <Textarea
+            name="message"
             placeholder="Message"
             rows={5}
             className="w-full bg-white border-gray-300 text-gray-700 placeholder:text-gray-500 resize-none text-base"
