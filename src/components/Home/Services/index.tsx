@@ -6,7 +6,7 @@ export default function Services() {
       <div className="w-full mx-auto space-y-10">
         {/* Header Section */}
         <div className="text-center space-y-2">
-          <p className="text-[#bd843b] text-[12px] tracking-[3px] sm:tracking-[5px]">
+          <p className="text-[#bd843b] text-[12px] tracking-[3px] sm:tracking-[4px]">
             METICULOUS CARE, INSIDE AND OUT
           </p>
           <h1 className="text-[28px] sm:text-[32px] lg:text-[40px] font-serif tracking-[10px] sm:tracking-[14px] lg:tracking-[18px] text-gray-900">
