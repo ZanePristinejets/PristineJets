@@ -19,15 +19,15 @@ export default function About() {
         <div className="relative min-h-[calc(100vh-5rem)] w-full flex flex-col">
           {/* Main Content - centered */}
           <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 sm:space-y-3 px-4 pt-10 md:pt-10 lg:pt-5 xl:pt-0">
-            <div className="text-[#bd843b] text-[10px] sm:text-xs tracking-[3px] sm:tracking-[5px] uppercase mb-2">
+            <div className="text-[#bd843b] text-[12px] sm:text-xs tracking-[3px] sm:tracking-[5px] uppercase mb-2">
               ABOUT
             </div>
 
-            <h1 className="font-serif text-white text-[20px] sm:text-[30px] xl:text-[40px] tracking-[8px] sm:tracking-[14px] md:tracking-[18px] leading-tight">
+            <h1 className="font-serif text-white text-[24px] sm:text-[30px] xl:text-[40px] tracking-[8px] sm:tracking-[14px] md:tracking-[18px] leading-tight">
               PRISTINE JETS
             </h1>
 
-            <div className="mt-4 space-y-4 text-gray-100 text-[8px] sm:text-[10px] md:text-[12px] lg:text-[14px] leading-relaxed w-[80%] xl:w-[75%] mx-auto">
+            <div className="mt-4 space-y-4 text-gray-100 text-[10px] sm:text-[10px] md:text-[12px] lg:text-[14px] leading-relaxed w-[80%] xl:w-[75%] mx-auto">
               <p>
                 At Pristine Jets, we believe that every aircraft deserves
                 meticulous attention. Founded in Bozeman, Montana, our team was
