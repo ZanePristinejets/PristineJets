@@ -28,14 +28,14 @@ export default function Contact({
     ? "w-5 h-5 sm:w-6 sm:h-6 text-[#bd843b]"
     : "w-4 h-4 sm:w-5 sm:h-5 text-[#bd843b]";
   const labelClass = fullPage
-    ? "text-sm sm:text-base tracking-[4px] sm:tracking-[5px] text-white/70 uppercase mb-1"
-    : "text-xs sm:text-sm tracking-[4px] sm:tracking-[5px] text-white/70 uppercase mb-1";
+    ? "text-sm sm:text-base tracking-[4px] sm:tracking-[5px] text-white/70 uppercase mb-1 font-semibold"
+    : "text-xs sm:text-sm tracking-[4px] sm:tracking-[5px] text-white/70 uppercase mb-1 font-semibold";
   const valuePhoneClass = fullPage
-    ? "text-lg sm:text-xl tracking-[3px] sm:tracking-[4px]"
-    : "text-base sm:text-lg tracking-[4px] sm:tracking-[5px]";
+    ? "text-lg sm:text-xl tracking-[3px] sm:tracking-[4px] font-semibold"
+    : "text-base sm:text-lg tracking-[4px] sm:tracking-[5px] font-semibold";
   const emailValueClass = fullPage
-    ? "text-lg sm:text-xl tracking-wider"
-    : "text-base sm:text-lg tracking-wider";
+    ? "text-lg sm:text-xl tracking-wider font-semibold"
+    : "text-base sm:text-lg tracking-wider font-semibold";
 
   return (
     <div
@@ -45,12 +45,13 @@ export default function Contact({
     >
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none filter brightness-90 contrast-110 saturate-110"
         style={{
-          backgroundImage: "url('/imgs/contact-background.jpg')",
+          backgroundImage: "url('/imgs/bzn-plane-2.jpg')",
         }}
       >
-        <div className="absolute inset-0 bg-black/30 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#bd843b]/50 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-black/45 pointer-events-none" />
       </div>
 
       {/* Content */}
@@ -69,9 +70,9 @@ export default function Contact({
                 <div className={iconWrapClass}>
                   <Phone className={iconClass} />
                 </div>
-                <div className="text-center lg:text-left">
+                <div className="text-center lg:text-left shadow-2xl">
                   <p className={labelClass}>PHONE:</p>
-                  <p className={valuePhoneClass}>+00 (9876)543-210</p>
+                  <p className={valuePhoneClass}>+1 (406) 595-9464</p>
                 </div>
               </div>
 
@@ -82,7 +83,7 @@ export default function Contact({
                 </div>
                 <div className="text-center lg:text-left">
                   <p className={labelClass}>EMAIL:</p>
-                  <p className={emailValueClass}>info@pristinejets.com</p>
+                  <p className={emailValueClass}>zane.k@mypristinejet.com</p>
                 </div>
               </div>
             </div>

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
 
 const avenir = localFont({
   src: [
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${avenir.variable} ${didot.variable}`}>
+        <Banner />
         <Header />
         {children}
         <Footer />

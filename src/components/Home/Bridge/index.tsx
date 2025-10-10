@@ -7,11 +7,11 @@ export default function Bridge() {
         <p className="text-[#bd843b] text-[10px] sm:text-xs tracking-[5px] sm:tracking-[6px] uppercase">
           PREMIUM CARE
         </p>
-        <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-serif tracking-[2px] text-gray-900">
+        <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-serif tracking-[1px] text-gray-900">
           Ready for a spotless flight?
         </h2>
         <p className="text-gray-600 mt-3 text-xs max-w-2xl mx-auto">
-          From quick turnarounds to full detailing — our team is on standby 24/7
+          From quick turnarounds to full detailing - our team is on standby 24/7
           to keep your aircraft pristine.
         </p>
 

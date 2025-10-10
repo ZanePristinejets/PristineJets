@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gray-50 text-gray-700" role="contentinfo">
       <div className="mx-auto w-full max-w-7xl px-4">
-        <div className="flex h-auto flex-col items-center justify-center gap-3 py-4 md:h-20 md:flex-row md:gap-5 md:py-0">
+        <div className="flex h-auto flex-col items-center justify-center gap-3 py-4 md:h-[43px] md:flex-row md:gap-5 md:py-0">
           <span className="flex items-center gap-2 text-center text-xs md:text-left">
             <span
               aria-label="Copyright"

@@ -9,6 +9,9 @@ type Fields = {
   lastName: string;
   email: string;
   phone: string; // optional
+  dateOfService: string;
+  aircraftModel: string;
+  tailNumber: string;
   message: string;
 };
 
@@ -36,6 +39,9 @@ export default function Form() {
     lastName: "",
     email: "",
     phone: "",
+    dateOfService: "",
+    aircraftModel: "",
+    tailNumber: "",
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
@@ -43,6 +49,7 @@ export default function Form() {
     "idle"
   );
   const formRef = useRef<HTMLFormElement | null>(null);
+  const [dateType, setDateType] = useState<"text" | "date">("text");
 
   function validate(values: Fields): Errors {
     const e: Errors = {};
@@ -54,6 +61,12 @@ export default function Form() {
     }
     if (!values.email || !isValidEmail(values.email.trim())) {
       e.email = "Please enter a valid email.";
+    }
+    if (!values.aircraftModel || values.aircraftModel.trim().length < 2) {
+      e.aircraftModel = "Aircraft model must be at least 2 characters.";
+    }
+    if (!values.tailNumber || values.tailNumber.trim().length < 2) {
+      e.tailNumber = "Tail number must be at least 2 characters.";
     }
     if (values.phone) {
       const digits = onlyDigits(values.phone);
@@ -89,6 +102,9 @@ export default function Form() {
         "firstName",
         "lastName",
         "email",
+        "dateOfService",
+        "aircraftModel",
+        "tailNumber",
         "phone",
         "message",
       ];
@@ -112,6 +128,9 @@ export default function Form() {
           lastName: v.lastName,
           email: v.email,
           phone: v.phone,
+          dateOfService: v.dateOfService,
+          aircraftModel: v.aircraftModel,
+          tailNumber: v.tailNumber,
           message: v.message,
           "bot-field": "",
           redirect: "/contact/success",
@@ -124,30 +143,29 @@ export default function Form() {
     }
   }
 
-  function errProps<K extends keyof Fields>(key: K) {
+  function errProps<K extends keyof Fields>(key: K, extra?: string) {
     const isErr = Boolean(errors[key]);
     return {
       "aria-invalid": isErr || undefined,
-      "aria-describedby": isErr ? `${String(key)}-error` : undefined,
       className:
-        "w-full bg-white border-gray-300 h-11 text-gray-700 placeholder:text-gray-500 text-base " +
-        (isErr ? "border-red-500 ring-1 ring-red-400" : ""),
+        "w-full bg-white/25 border-gray-300 h-10 text-white placeholder:text-white text-sm " +
+        (isErr ? "border-red-500 ring-1 ring-red-500" : "") +
+        (extra ? ` ${extra}` : ""),
     } as const;
   }
 
   return (
-    <div className="bg-gray-100 backdrop-blur-sm p-8 md:p-12 shadow-2xl max-w-2xl w-full mx-auto">
-      <h2 className="font-serif text-2xl lg:text-3xl font-light tracking-[8px] text-gray-800 mb-6 text-center">
-        GET IN TOUCH
-      </h2>
-
+    <div className="bg-stone-500/45 backdrop-blur-[4px] p-6 md:p-8 shadow-2xl max-w-xl w-full mx-auto">
       <form
         ref={formRef}
         name="contact"
         noValidate
         onSubmit={onSubmit}
-        className="space-y-4 sm:space-y-5 w-full"
+        className="space-y-3 sm:space-y-6 w-full"
       >
+        <h2 className="font-serif text-xl lg:text-2xl font-bold tracking-[6px] text-white mb-4 text-center">
+          GET IN TOUCH
+        </h2>
         {/* Netlify hidden fields (kept in body as well) */}
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="redirect" value="/contact/success" />
@@ -158,86 +176,99 @@ export default function Form() {
         </p>
 
         {/* Name Fields */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
           <div className="w-full">
             <Input
               type="text"
               name="firstName"
-              placeholder="First Name"
+              placeholder="First Name *"
               value={fields.firstName}
               onChange={(e) => setField("firstName", e.target.value)}
               required
               {...errProps("firstName")}
             />
-            {errors.firstName && (
-              <p
-                id="firstName-error"
-                className="mt-1 text-[11px] pt-[1px] text-red-600"
-              >
-                {errors.firstName}
-              </p>
-            )}
           </div>
           <div className="w-full">
             <Input
               type="text"
               name="lastName"
-              placeholder="Last Name"
+              placeholder="Last Name *"
               value={fields.lastName}
               onChange={(e) => setField("lastName", e.target.value)}
               required
               {...errProps("lastName")}
             />
-            {errors.lastName && (
-              <p
-                id="lastName-error"
-                className="mt-1 text-[11px] pt-[1px] text-red-600"
-              >
-                {errors.lastName}
-              </p>
-            )}
           </div>
         </div>
 
         {/* Email and Phone */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
           <div className="w-full">
             <Input
               type="email"
               name="email"
-              placeholder="Email Address"
+              placeholder="Email Address *"
               value={fields.email}
               onChange={(e) => setField("email", e.target.value)}
               required
               {...errProps("email")}
             />
-            {errors.email && (
-              <p
-                id="email-error"
-                className="mt-1 text-[11px] pt-[1px] text-red-600"
-              >
-                {errors.email}
-              </p>
-            )}
           </div>
           <div className="w-full">
             <Input
               type="tel"
               name="phone"
-              placeholder="Phone Number (optional)"
+              placeholder="Phone Number"
               value={fields.phone}
               onChange={(e) => setField("phone", formatUSPhone(e.target.value))}
               inputMode="tel"
               {...errProps("phone")}
             />
-            {errors.phone && (
-              <p
-                id="phone-error"
-                className="mt-1 text-[11px] pt-[1px] text-red-600"
-              >
-                {errors.phone}
-              </p>
-            )}
+          </div>
+        </div>
+
+        {/* Service Details */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full">
+          <div className="w-full">
+            <Input
+              type={dateType}
+              name="dateOfService"
+              placeholder={dateType === "text" ? "Service date" : undefined}
+              value={fields.dateOfService}
+              onChange={(e) => setField("dateOfService", e.target.value)}
+              onFocus={() => setDateType("date")}
+              onBlur={() => {
+                if (!fields.dateOfService) setDateType("text");
+              }}
+              {...errProps(
+                "dateOfService",
+                "[color-scheme:dark] [&::-webkit-calendar-picker-indicator]:invert"
+              )}
+            />
+          </div>
+          <div className="w-full">
+            <Input
+              type="text"
+              name="aircraftModel"
+              placeholder="Aircraft Model *"
+              value={fields.aircraftModel}
+              onChange={(e) => setField("aircraftModel", e.target.value)}
+              required
+              {...errProps("aircraftModel")}
+            />
+          </div>
+          <div className="w-full">
+            <Input
+              type="text"
+              name="tailNumber"
+              placeholder="Tail Number *"
+              value={fields.tailNumber}
+              onChange={(e) =>
+                setField("tailNumber", e.target.value.toUpperCase())
+              }
+              required
+              {...errProps("tailNumber")}
+            />
           </div>
         </div>
 
@@ -245,45 +276,33 @@ export default function Form() {
         <div>
           <Textarea
             name="message"
-            placeholder="Message"
+            placeholder="Message *"
             rows={5}
             value={fields.message}
             onChange={(e) => setField("message", e.target.value)}
             required
             className={
-              "w-full bg-white border-gray-300 text-gray-700 placeholder:text-gray-500 resize-none text-base " +
-              (errors.message ? "border-red-500 ring-1 ring-red-400" : "")
+              "w-full bg-white/25 border-gray-300 text-white placeholder:text-white resize-none text-sm " +
+              (errors.message ? "border-red-500 ring-1 ring-red-500" : "")
             }
             aria-invalid={Boolean(errors.message) || undefined}
-            aria-describedby={errors.message ? "message-error" : undefined}
             maxLength={2000}
           />
-          <div className="flex justify-between text-[11px] pt-[1px]">
-            {errors.message ? (
-              <p id="message-error" className="text-red-600">
-                {errors.message}
-              </p>
-            ) : (
-              <span className="text-gray-500 text-[11px] pt-[1px]">
-                {fields.message.length}/2000
-              </span>
-            )}
-          </div>
         </div>
 
         {/* Submit */}
-        <div className="flex justify-center pt-3">
+        <div className="flex justify-center pt-2">
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="bg-[#bd843b] hover:bg-[#a76c3b] disabled:opacity-60 disabled:cursor-not-allowed text-white w-full sm:w-auto px-7 py-2.5 h-auto text-sm tracking-[3px] transition-all duration-300"
+            className="bg-[#bd843b] hover:bg-[#a76c3b] disabled:opacity-60 disabled:cursor-not-allowed hover:cursor-pointer text-white w-full sm:w-auto px-5 py-2.5 h-auto text-xs tracking-[2px] transition-all duration-300"
           >
             {status === "submitting" ? "SENDING..." : "CONTACT US"}
           </button>
         </div>
 
         {status === "err" && (
-          <p className="text-center text-red-600 text-sm mt-2">
+          <p className="text-center text-red-500 text-sm mt-2">
             Something went wrong. Please try again.
           </p>
         )}
