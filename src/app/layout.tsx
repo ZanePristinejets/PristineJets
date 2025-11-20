@@ -30,6 +30,11 @@ const didot = localFont({
 export const metadata: Metadata = {
   title: "Pristine Jets",
   description: "Luxury private jet detailing services",
+  icons: {
+    icon: [
+      { url: "/imgs/logo.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({

@@ -83,7 +83,7 @@ export default function Contact({
                 </div>
                 <div className="text-center lg:text-left">
                   <p className={labelClass}>EMAIL:</p>
-                  <p className={emailValueClass}>zane.k@mypristinejet.com</p>
+                  <p className={emailValueClass}>info@mypristinejet.com</p>
                 </div>
               </div>
             </div>
