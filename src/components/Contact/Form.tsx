@@ -65,9 +65,6 @@ export default function Form() {
     if (!values.aircraftModel || values.aircraftModel.trim().length < 2) {
       e.aircraftModel = "Aircraft model must be at least 2 characters.";
     }
-    if (!values.tailNumber || values.tailNumber.trim().length < 2) {
-      e.tailNumber = "Tail number must be at least 2 characters.";
-    }
     if (values.phone) {
       const digits = onlyDigits(values.phone);
       if (digits.length !== 10) {
@@ -261,12 +258,11 @@ export default function Form() {
             <Input
               type="text"
               name="tailNumber"
-              placeholder="Tail Number *"
+              placeholder="Tail Number"
               value={fields.tailNumber}
               onChange={(e) =>
                 setField("tailNumber", e.target.value.toUpperCase())
               }
-              required
               {...errProps("tailNumber")}
             />
           </div>
