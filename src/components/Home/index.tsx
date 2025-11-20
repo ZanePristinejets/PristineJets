@@ -1,8 +1,8 @@
 import Hero from "./Hero";
 import Services from "./Services";
 import About from "./About";
-import Testimonials from "./Testimonials";
-import Contact from "./Contact/Contact";
+import Contact from "../Contact";
+import Bridge from "./Bridge";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <Services />
       <About />
-      <Testimonials />
+      <Bridge />
       <Contact />
     </div>
   );

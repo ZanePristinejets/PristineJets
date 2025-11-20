@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
   return (
     <section className="min-h-[65vh] md:min-h-screen relative overflow-hidden">
@@ -29,14 +31,18 @@ export default function About() {
         {/* Bottom Right Content */}
         <div className="absolute bottom-10 right-6 sm:right-10 lg:bottom-16 lg:right-36 max-w-xs w-[calc(100%-3rem)] sm:w-auto">
           <p className="text-gray-100 text-sm sm:text-sm leading-relaxed mb-2">
-            Sed tempus rhoncus magna, in venenatis ligula faucibus eget. Mauris
-            ullamcorper arcu lectus, in consectetur eros semper fermentum.
-            Quisque urna ex, fermentum ut massa vitmus.
+            At Pristine Jets, we combine aviation expertise with an unmatched
+            attention to detail. Based in Bozeman, Montana, our 24/7 mobile crew
+            delivers premium cleaning and protection services tailored to every
+            aircraft.
           </p>
 
-          <button className="text-[#bd843b] hover:text-[#8c5523] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3">
+          <Link
+            href="/about"
+            className="text-[#bd843b] hover:text-[#8c5523] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3"
+          >
             Learn More
-          </button>
+          </Link>
         </div>
       </div>
     </section>

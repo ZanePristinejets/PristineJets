@@ -46,7 +46,7 @@ export default function Testimonials() {
         {/* Header */}
         <div className="pb-10 md:pb-14">
           <h2 className="text-[28px] sm:text-[34px] md:text-[40px] font-serif tracking-[6px] sm:tracking-[10px] md:tracking-[12px] text-gray-800 mb-1">
-            WHAT CLIENT'S SAY?
+            WHAT CLIENT&apos;S SAY?
           </h2>
           <div className="w-full h-px bg-gray-800 mx-auto"></div>
         </div>

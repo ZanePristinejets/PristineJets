@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Banner from "@/components/Banner";
 
 const avenir = localFont({
   src: [
@@ -29,6 +30,11 @@ const didot = localFont({
 export const metadata: Metadata = {
   title: "Pristine Jets",
   description: "Luxury private jet detailing services",
+  icons: {
+    icon: [
+      { url: "/imgs/logo.svg", type: "image/svg+xml" },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -37,8 +43,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body className={`${avenir.variable} ${didot.variable}`}>
+        <Banner />
         <Header />
         {children}
         <Footer />

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <section className="min-h-[75vh] md:min-h-screen w-full relative overflow-hidden">
@@ -34,9 +36,12 @@ export default function Home() {
           </p>
 
           {/* CTA button */}
-          <button className="bg-[#bd843b] hover:bg-[#8c5523] hover:cursor-pointer text-white text-[12px] tracking-[2px] w-1/2 sm:w-auto px-8 sm:px-10 py-3 transition-colors duration-300">
+          <Link
+            href="/#contact"
+            className="bg-[#bd843b] hover:bg-[#8c5523] hover:cursor-pointer text-white text-[12px] tracking-[2px] w-1/2 sm:w-auto px-8 sm:px-10 py-3 transition-colors duration-300"
+          >
             GET A QUOTE
-          </button>
+          </Link>
         </div>
       </div>
     </section>
