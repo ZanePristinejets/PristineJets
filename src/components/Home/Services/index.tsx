@@ -14,6 +14,7 @@ import {
   Eraser,
   Gauge,
   Toilet,
+  Dog
 } from "lucide-react";
 
 type Service = {
@@ -93,6 +94,12 @@ const interiorServices: Service[] = [
     Icon: Brush,
   },
   {
+    title: "Pet Hair Removal",
+    description:
+      "Specialized removal of embedded pet hair from seats, carpets, panels, and hard-to-reach areas using professional tools and techniques to restore cleanliness, eliminate allergens, and ensure a fresh, guest-ready cabin.",
+    Icon: Dog,
+  },
+  {
     title: "Window Detailing",
     description:
       "Crystal-clear cleaning of all interior windows and shades to enhance visibility and passenger comfort.",
@@ -114,7 +121,9 @@ const interiorServices: Service[] = [
 
 export default function Services() {
   const [selected, setSelected] = useState<"exterior" | "interior">("interior");
-  const [expanded, setExpanded] = useState<Record<"exterior" | "interior", boolean>>({
+  const [expanded, setExpanded] = useState<
+    Record<"exterior" | "interior", boolean>
+  >({
     interior: false,
     exterior: false,
   });
@@ -144,7 +153,10 @@ export default function Services() {
             OUR SERVICES
           </h1>
           <p className="text-gray-600 max-w-xl mx-auto text-[13px] sm:text-[12px] leading-relaxed">
-            At Pristine Jets, every detail matters. From cabin to fuselage, our expert crew delivers precision cleaning, polishing, and protection that keep your aircraft in top condition. Available 24/7 in Bozeman, we bring meticulous care wherever your jet is.
+            At Pristine Jets, every detail matters. From cabin to fuselage, our
+            expert crew delivers precision cleaning, polishing, and protection
+            that keep your aircraft in top condition. Available 24/7 in Bozeman,
+            we bring meticulous care wherever your jet is.
           </p>
         </div>
 
@@ -177,7 +189,10 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div ref={gridTopRef} className="grid gap-6 md:gap-0 md:grid-cols-2 max-w-4xl mx-auto">
+        <div
+          ref={gridTopRef}
+          className="grid gap-6 md:gap-0 md:grid-cols-2 max-w-4xl mx-auto"
+        >
           {visible.map(({ title, description, Icon }, idx) => (
             <div
               key={title}
@@ -192,7 +207,9 @@ export default function Services() {
               <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
                 {title}
               </h3>
-              <p className="text-gray-600 text-[13px] leading-relaxed">{description}</p>
+              <p className="text-gray-600 text-[13px] leading-relaxed">
+                {description}
+              </p>
             </div>
           ))}
           {expanded && <span />}
@@ -204,7 +221,10 @@ export default function Services() {
               onClick={() =>
                 setExpanded((prev) => {
                   const nextForSelected = !prev[selected];
-                  const nextState = { ...prev, [selected]: nextForSelected } as Record<"exterior" | "interior", boolean>;
+                  const nextState = {
+                    ...prev,
+                    [selected]: nextForSelected,
+                  } as Record<"exterior" | "interior", boolean>;
                   requestAnimationFrame(() => {
                     if (nextForSelected) {
                       const lastStartIndex = Math.max(data.length - 4, 0);
@@ -224,8 +244,7 @@ export default function Services() {
             >
               <span
                 className={
-                  "relative pb-1 " +
-                  (isExpanded ? "text-black" : "text-black")
+                  "relative pb-1 " + (isExpanded ? "text-black" : "text-black")
                 }
               >
                 {isExpanded ? "VIEW LESS" : "VIEW ALL"}
