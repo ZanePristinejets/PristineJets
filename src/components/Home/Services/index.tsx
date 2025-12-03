@@ -14,7 +14,8 @@ import {
   Eraser,
   Gauge,
   Toilet,
-  Dog
+  Dog,
+  Warehouse,
 } from "lucide-react";
 
 type Service = {
@@ -119,19 +120,35 @@ const interiorServices: Service[] = [
   },
 ];
 
+const hangerServices: Service[] = [
+  {
+    title: "Hangar Cleaning",
+    description:
+      "A fast, light cleaning of your aircraft's hangar space, including sweeping, dusting, cobweb removal, and mopping or deep floor cleaning to keep the area spotless and professional.",
+    Icon: Warehouse,
+  },
+  {
+    title: "Aircraft Dust-Off",
+    description:
+      "A quick exterior refresh to remove surface dust, fingerprints, and light debris using aviation-safe microfiber techniques. Ideal for pre-flight touch-ups or routine hangar upkeep.",
+    Icon: Sparkle,
+  },
+]
+
 export default function Services() {
-  const [selected, setSelected] = useState<"exterior" | "interior">("interior");
+  const [selected, setSelected] = useState<"exterior" | "interior" | "hangar">("interior");
   const [expanded, setExpanded] = useState<
-    Record<"exterior" | "interior", boolean>
+    Record<"exterior" | "interior" | "hangar", boolean>
   >({
     interior: false,
     exterior: false,
+    hangar: false,
   });
   const gridTopRef = useRef<HTMLDivElement | null>(null);
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const data = selected === "exterior" ? exteriorServices : interiorServices;
+  const data = selected === "exterior" ? exteriorServices : selected === "interior" ? interiorServices : hangerServices;
   const isExpanded = expanded[selected];
   const visible = isExpanded ? data : data.slice(0, 4);
 
@@ -165,6 +182,7 @@ export default function Services() {
           {[
             { key: "interior" as const, label: "INTERIOR" },
             { key: "exterior" as const, label: "EXTERIOR" },
+            { key: "hangar" as const, label: "HANGAR" },
           ].map((tab) => {
             const active = selected === tab.key;
             return (
@@ -224,7 +242,7 @@ export default function Services() {
                   const nextState = {
                     ...prev,
                     [selected]: nextForSelected,
-                  } as Record<"exterior" | "interior", boolean>;
+                  } as Record<"exterior" | "interior" | "hangar", boolean>;
                   requestAnimationFrame(() => {
                     if (nextForSelected) {
                       const lastStartIndex = Math.max(data.length - 4, 0);
