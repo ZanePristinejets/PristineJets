@@ -28,12 +28,40 @@ const didot = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Pristine Jets",
-  description: "Luxury private jet detailing services",
+  metadataBase: new URL("https://mypristinejet.com"),
+  title: {
+    default: "Pristine Jets | Aircraft Detailing at BZN in Bozeman, MT",
+    template: "%s | Pristine Jets",
+  },
+  description:
+    "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings for private jets in Montana.",
   icons: {
-    icon: [
-      { url: "/imgs/logo.svg", type: "image/svg+xml" },
+    icon: [{ url: "/imgs/logo.svg", type: "image/svg+xml" }],
+  },
+  openGraph: {
+    type: "website",
+    url: "https://mypristinejet.com/",
+    title:
+      "Pristine Jets | Aircraft Detailing at BZN in Bozeman, MT",
+    description:
+      "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings.",
+    siteName: "Pristine Jets",
+    images: [
+      {
+        url: "https://mypristinejet.com/imgs/hero-background.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pristine Jets aircraft detailing at BZN",
+      },
     ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pristine Jets | Aircraft Detailing at BZN",
+    description:
+      "24/7 mobile aircraft detailing in Bozeman, MT at BZN.",
+    images: ["https://mypristinejet.com/imgs/hero-background.jpg"],
   },
 };
 

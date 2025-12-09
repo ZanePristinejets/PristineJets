@@ -166,9 +166,9 @@ export default function Form() {
         {/* Netlify hidden fields (kept in body as well) */}
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="redirect" value="/contact/success" />
-        <p className="hidden">
+        <p data-nosnippet aria-hidden="true" className="absolute w-[1px] h-[1px] padding-0 -m-[1px] overflow-hidden border-0">
           <label>
-            Dont fill this out if youre human: <input name="bot-field" />
+            Leave this field empty: <input name="bot-field" />
           </label>
         </p>
 
