@@ -30,7 +30,7 @@ const didot = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://mypristinejet.com"),
   title: {
-    default: "Pristine Jets | Aircraft Detailing at BZN in Bozeman, MT",
+    default: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
     template: "%s | Pristine Jets",
   },
   description:
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://mypristinejet.com/",
     title:
-      "Pristine Jets | Aircraft Detailing at BZN in Bozeman, MT",
+      "Pristine Jets | Aircraft Detailing in Bozeman, MT",
     description:
       "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings.",
     siteName: "Pristine Jets",
