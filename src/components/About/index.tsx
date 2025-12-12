@@ -1,17 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
     <div className="relative w-full h-full bg-white">
+      {/* About Section (single) */}
       <section className="min-h-[calc(100vh-5rem)] w-full relative overflow-hidden">
-        {/* About Section (single) */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('/imgs/about-background.jpg')",
-          }}
-        >
-          {/* Dark overlay for better text readability */}
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/imgs/about-background.webp"
+            alt="Man sitting in detailed Private jet"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+          {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/80" />
         </div>
 
@@ -56,6 +61,7 @@ export default function About() {
             <div className="mt-6">
               <Link
                 href="/contact"
+                aria-label="Go to Contact Page to Get a Quote"
                 className="inline-block bg-[#bd843b] hover:bg-[#8c5523] text-white text-xs tracking-[2px] px-8 py-3 transition-colors duration-300"
               >
                 GET A QUOTE

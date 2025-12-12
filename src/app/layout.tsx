@@ -38,14 +38,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://mypristinejet.com/",
-    title:
-      "Pristine Jets | Aircraft Detailing in Bozeman, MT",
+    title: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
     description:
       "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings.",
     siteName: "Pristine Jets",
     images: [
       {
-        url: "https://mypristinejet.com/imgs/hero-background.jpg",
+        url: "https://mypristinejet.com/imgs/hero-background.webp",
         width: 1200,
         height: 630,
         alt: "Pristine Jets aircraft detailing at BZN",
@@ -56,9 +55,24 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Pristine Jets | Aircraft Detailing at BZN",
-    description:
-      "24/7 mobile aircraft detailing in Bozeman, MT at BZN.",
-    images: ["https://mypristinejet.com/imgs/hero-background.jpg"],
+    description: "24/7 mobile aircraft detailing in Bozeman, MT at BZN.",
+    images: ["https://mypristinejet.com/imgs/hero-background.webp"],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Pristine Jets",
+  url: "https://mypristinejet.com/",
+  logo: "https://mypristinejet.com/imgs/logo.svg",
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+1-406-595-9464",
+    email: "info@mypristinejet.com",
+    contactType: "Customer Service",
+    areaServed: "US",
+    availableLanguage: "English",
   },
 };
 
@@ -70,6 +84,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${avenir.variable} ${didot.variable}`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd),
+          }}
+        />
         <Banner />
         <Header />
         {children}

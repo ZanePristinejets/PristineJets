@@ -24,6 +24,7 @@ export default function Footer() {
           >
             <a
               href="#"
+              aria-label="Privacy Policy"
               className="rounded-sm text-xs transition-colors duration-200 hover:text-[#bd843b] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#bd843b]/40"
             >
               Privacy Policy
@@ -31,6 +32,7 @@ export default function Footer() {
             <span className="hidden h-5 w-px bg-gray-300 md:block" />
             <a
               href="#"
+              aria-label="Terms and Conditions"
               className="rounded-sm text-xs transition-colors duration-200 hover:text-[#bd843b] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#bd843b]/40"
             >
               Terms and Conditions

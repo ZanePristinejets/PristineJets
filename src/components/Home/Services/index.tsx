@@ -222,9 +222,9 @@ export default function Services() {
               <div className="mb-4">
                 <Icon className="w-8 h-8 lg:w-10 lg:h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />
               </div>
-              <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
+              <h2 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
                 {title}
-              </h3>
+              </h2>
               <p className="text-gray-600 text-[13px] leading-relaxed">
                 {description}
               </p>

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Pristine Jets",
     images: [
       {
-        url: "https://mypristinejet.com/imgs/about-background.jpg",
+        url: "https://mypristinejet.com/imgs/about-background.webp",
         width: 1200,
         height: 630,
         alt: "About Pristine Jets aircraft detailing",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "About Pristine Jets | Aircraft Detailing",
     description:
       "24/7 mobile aircraft detailing in Bozeman, MT at BZN. Exterior and interior care, brightwork polishing, protective coatings.",
-    images: ["https://mypristinejet.com/imgs/about-background.jpg"],
+    images: ["https://mypristinejet.com/imgs/about-background.webp"],
   },
 };
 

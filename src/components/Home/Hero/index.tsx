@@ -1,16 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
     <section className="min-h-[75vh] md:min-h-screen w-full relative overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/imgs/hero-background.jpg')",
-        }}
-      >
-        {/* Dark overlay for better text readability */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/imgs/hero-background.webp"
+          alt="Private jet with detailed interior"
+          fill
+          priority
+          style={{ objectFit: "cover" }}
+        />
+        {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
@@ -38,6 +41,7 @@ export default function Home() {
           {/* CTA button */}
           <Link
             href="/#contact"
+            aria-label="Go to Contact Section"
             className="bg-[#bd843b] hover:bg-[#8c5523] hover:cursor-pointer text-white text-[12px] tracking-[2px] w-1/2 sm:w-auto px-8 sm:px-10 py-3 transition-colors duration-300"
           >
             GET A QUOTE

@@ -1,15 +1,18 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   return (
     <section className="min-h-[65vh] md:min-h-screen relative overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-[70%_center] md:bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/imgs/about-background.jpg')",
-        }}
-      >
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/imgs/about-background.webp"
+          alt="Man sitting in detailed Private jet"
+          fill
+          priority
+          style={{ objectFit: "cover" }}
+        />
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/30" />
       </div>
@@ -39,6 +42,7 @@ export default function About() {
 
           <Link
             href="/about"
+            aria-label="Learn More About Pristine Jets"
             className="text-[#bd843b] hover:text-[#8c5523] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3"
           >
             Learn More

@@ -18,6 +18,7 @@ export default function Bridge() {
         <div className="mt-6 sm:mt-8">
           <Link
             href="#contact"
+            aria-label="Go to Contact Section"
             className="inline-flex items-center justify-center px-6 sm:px-8 py-3 border border-[#bd843b] text-[#bd843b] hover:bg-[#bd843b] hover:text-white transition-colors duration-300 tracking-[3px] text-xs sm:text-sm uppercase"
           >
             Contact Us

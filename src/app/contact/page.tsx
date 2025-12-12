@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     siteName: "Pristine Jets",
     images: [
       {
-        url: "https://mypristinejet.com/imgs/bzn-plane-2.jpg",
+        url: "https://mypristinejet.com/imgs/bzn-plane-2.webp",
         width: 1200,
         height: 630,
         alt: "Contact Pristine Jets at BZN",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Contact Pristine Jets | Aircraft Detailing",
     description:
       "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN).",
-    images: ["https://mypristinejet.com/imgs/bzn-plane-2.jpg"],
+    images: ["https://mypristinejet.com/imgs/bzn-plane-2.webp"],
   },
 };
 

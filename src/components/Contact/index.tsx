@@ -1,5 +1,6 @@
 import { Phone, Mail } from "lucide-react";
 import Form from "./Form";
+import Image from "next/image";
 
 type ContactProps = {
   heightVh?: number;
@@ -11,7 +12,6 @@ export default function Contact({
   heightVh = 80,
   fullPage = false,
 }: ContactProps) {
-
   const minHeight = fullPage ? "calc(100vh - 5rem)" : `${heightVh}vh`;
 
   // Classes that scale up when fullPage is true
@@ -44,13 +44,15 @@ export default function Contact({
       style={{ minHeight }}
     >
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none filter brightness-90 contrast-110 saturate-110"
-        style={{
-          backgroundImage: "url('/imgs/bzn-plane-2.jpg')",
-        }}
-      >
-        <div className="absolute inset-0 bg-[#bd843b]/50 mix-blend-multiply pointer-events-none" />
+      <div className="absolute inset-0 pointer-events-none">
+        <Image
+          src="/imgs/bzn-plane-2.webp"
+          alt="Aircraft on the ramp at Bozeman Yellowstone International Airport"
+          fill
+          sizes="100vw"
+          className="object-cover object-center brightness-85 contrast-130 saturate-110"
+        />
+        <div className="absolute inset-0 bg-[#bd843b]/60 mix-blend-multiply pointer-events-none" />
         <div className="absolute inset-0 bg-black/45 pointer-events-none" />
       </div>
 
