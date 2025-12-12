@@ -10,6 +10,8 @@ export default function ContactSuccessPage() {
           src="/imgs/bzn-plane-2.webp"
           alt="Aircraft on the ramp at Bozeman Yellowstone International Airport"
           fill
+          priority
+          fetchPriority="high"
           sizes="100vw"
           className="object-cover object-center brightness-80 contrast-140 saturate-110"
         />

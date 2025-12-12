@@ -11,6 +11,7 @@ export default function About() {
           alt="Man sitting in detailed Private jet"
           fill
           priority
+          fetchPriority="high"
           style={{ objectFit: "cover" }}
         />
         {/* Dark overlay for better text readability */}

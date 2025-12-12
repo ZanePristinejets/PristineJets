@@ -13,6 +13,7 @@ export default function About() {
             alt="Man sitting in detailed Private jet"
             fill
             priority
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover object-center"
           />

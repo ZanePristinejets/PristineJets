@@ -11,6 +11,7 @@ export default function Home() {
           alt="Private jet with detailed interior"
           fill
           priority
+          fetchPriority="high"
           style={{ objectFit: "cover" }}
         />
         {/* Dark overlay */}
