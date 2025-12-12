@@ -46,7 +46,7 @@ export default function About() {
             aria-label="Learn More About Pristine Jets"
             className="text-[#bd843b] hover:text-[#8c5523] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3"
           >
-            Learn More
+            Learn More About Pristine Jets
           </Link>
         </div>
       </div>

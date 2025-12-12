@@ -92,7 +92,7 @@ export default function RootLayout({
         />
         <Banner />
         <Header />
-        {children}
+        <main> {children}</main>
         <Footer />
       </body>
     </html>

@@ -63,7 +63,7 @@ export default function About() {
               <Link
                 href="/contact"
                 aria-label="Go to Contact Page to Get a Quote"
-                className="inline-block bg-[#bd843b] hover:bg-[#8c5523] text-white text-xs tracking-[2px] px-8 py-3 transition-colors duration-300"
+                className="inline-block bg-[#996A33] hover:bg-[#8c5523] text-white text-xs tracking-[2px] px-8 py-3 transition-colors duration-300"
               >
                 GET A QUOTE
               </Link>

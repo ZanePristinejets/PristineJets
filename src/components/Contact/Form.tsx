@@ -166,9 +166,19 @@ export default function Form() {
         {/* Netlify hidden fields (kept in body as well) */}
         <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="redirect" value="/contact/success" />
-        <p data-nosnippet aria-hidden="true" className="absolute w-[1px] h-[1px] padding-0 -m-[1px] overflow-hidden border-0">
+        <p
+          data-nosnippet
+          hidden
+          className="absolute w-[1px] h-[1px] padding-0 -m-[1px] overflow-hidden border-0"
+        >
           <label>
-            Leave this field empty: <input name="bot-field" />
+            Leave this field empty:{" "}
+            <input
+              name="bot-field"
+              type="text"
+              autoComplete="off"
+              tabIndex={-1}
+            />
           </label>
         </p>
 

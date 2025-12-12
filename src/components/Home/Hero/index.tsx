@@ -43,7 +43,7 @@ export default function Home() {
           <Link
             href="/#contact"
             aria-label="Go to Contact Section"
-            className="bg-[#bd843b] hover:bg-[#8c5523] hover:cursor-pointer text-white text-[12px] tracking-[2px] w-1/2 sm:w-auto px-8 sm:px-10 py-3 transition-colors duration-300"
+            className="bg-[#996A33] hover:bg-[#8c5523] hover:cursor-pointer text-white text-[12px] tracking-[2px] w-1/2 sm:w-auto px-8 sm:px-10 py-3 transition-colors duration-300"
           >
             GET A QUOTE
           </Link>
