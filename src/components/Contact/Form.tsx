@@ -152,11 +152,15 @@ export default function Form() {
   }
 
   return (
-    <div className="bg-stone-500/45 backdrop-blur-[4px] p-6 md:p-8 shadow-2xl max-w-xl w-full mx-auto">
+    <div
+      data-nosnippet
+      className="bg-stone-500/45 backdrop-blur-[4px] p-6 md:p-8 shadow-2xl max-w-xl w-full mx-auto"
+    >
       <form
         ref={formRef}
         name="contact"
         noValidate
+        data-nosnippet
         onSubmit={onSubmit}
         className="space-y-3 sm:space-y-6 w-full"
       >
@@ -171,8 +175,8 @@ export default function Form() {
           hidden
           className="absolute w-[1px] h-[1px] padding-0 -m-[1px] overflow-hidden border-0"
         >
-          <label>
-            Leave this field empty:{" "}
+          <label data-nosnippet>
+            {" "}
             <input
               name="bot-field"
               type="text"

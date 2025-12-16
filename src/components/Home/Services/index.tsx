@@ -166,9 +166,9 @@ export default function Services() {
           <p className="text-[#bd843b] text-[12px] tracking-[3px] sm:tracking-[4px]">
             METICULOUS CARE, INSIDE AND OUT
           </p>
-          <h1 className="text-[28px] sm:text-[32px] lg:text-[40px] font-serif tracking-[10px] sm:tracking-[14px] lg:tracking-[18px] text-gray-900">
+          <h2 className="text-[28px] sm:text-[32px] lg:text-[40px] font-serif tracking-[10px] sm:tracking-[14px] lg:tracking-[18px] text-gray-900">
             OUR SERVICES
-          </h1>
+          </h2>
           <p className="text-gray-600 max-w-xl mx-auto text-[13px] sm:text-[12px] leading-relaxed">
             At Pristine Jets, every detail matters. From cabin to fuselage, our
             expert crew delivers precision cleaning, polishing, and protection
@@ -222,9 +222,9 @@ export default function Services() {
               <div className="mb-4">
                 <Icon className="w-8 h-8 lg:w-10 lg:h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />
               </div>
-              <h2 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
+              <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
                 {title}
-              </h2>
+              </h3>
               <p className="text-gray-600 text-[13px] leading-relaxed">
                 {description}
               </p>

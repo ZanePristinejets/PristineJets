@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mypristinejet.com"),
   title: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
   description:
-    "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings for private jets in Montana.",
+    "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to book exterior and interior jet cleaning.",
   icons: {
     icon: [{ url: "/imgs/logo.svg", type: "image/svg+xml" }],
   },

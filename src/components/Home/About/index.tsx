@@ -26,9 +26,9 @@ export default function About() {
             <span className="text-[#bd843b] text-xs sm:text-sm tracking-[4px] sm:tracking-[7px]">
               ABOUT
             </span>
-            <h1 className="font-serif text-white text-[32px] sm:text-[38px] lg:text-[45px] tracking-[10px] sm:tracking-[16px] lg:tracking-[20px]">
+            <h2 className="font-serif text-white text-[32px] sm:text-[38px] lg:text-[45px] tracking-[10px] sm:tracking-[16px] lg:tracking-[20px]">
               PRISTINE JETS
-            </h1>
+            </h2>
           </div>
         </div>
 

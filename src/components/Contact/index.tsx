@@ -66,7 +66,7 @@ export default function Contact({
         <div className={gridClasses}>
           {/* Left Side - Contact Info */}
           <div className="text-white space-y-8 text-center lg:text-left">
-            <h1 className={titleClass}>CONTACT US</h1>
+            <h2 className={titleClass}>CONTACT US</h2>
 
             <div className="space-y-6">
               {/* Phone */}

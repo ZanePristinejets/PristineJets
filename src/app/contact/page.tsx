@@ -4,7 +4,7 @@ import Contact from "@/components/Contact";
 export const metadata: Metadata = {
   title: "Contact | Schedule Aircraft Detailing at BZN",
   description:
-    "Contact Pristine Jets to schedule 24/7 aircraft detailing at Bozeman Yellowstone International Airport (BZN). Call +1 (406) 595-9464 or email info@mypristinejet.com to book exterior and interior jet cleaning.",
+    "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to book exterior and interior jet cleaning.",
   alternates: {
     canonical: "https://mypristinejet.com/contact",
   },
