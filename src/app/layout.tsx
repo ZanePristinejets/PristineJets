@@ -32,14 +32,6 @@ export const metadata: Metadata = {
   title: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
   description:
     "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to book exterior and interior jet cleaning.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon-16x16.png", type: "image/png", sizes: "16x16" },
-      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
-    ],
-    other: [{ rel: "icon", url: "/imgs/logo.svg", type: "image/svg+xml" }],
-  },
   openGraph: {
     type: "website",
     url: "https://mypristinejet.com/",
