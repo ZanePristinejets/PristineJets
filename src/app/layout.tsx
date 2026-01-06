@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -81,7 +82,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${avenir.variable} ${didot.variable}`}>
-        <script
+        {/* Google Analytics (gtag) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SK60D4KXHP"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SK60D4KXHP');
+          `}
+        </Script>
+        <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd),
