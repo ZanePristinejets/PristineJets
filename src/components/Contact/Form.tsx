@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, FormEvent } from "react";
+import { useState, useRef, useEffect, FormEvent } from "react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 
@@ -34,6 +34,37 @@ function encode(data: Record<string, string>) {
   return new URLSearchParams(data).toString();
 }
 
+// Airports list shared between validation and UI rendering
+const AIRPORT_OPTIONS = [
+  "Bozeman Yellowstone International Airport KBZN",
+  "Jackson Hole Airport, KJAC",
+  "Glacier park international airport (Kalispell) KGPI",
+  "Ennis - Big Sky Airport KEKS",
+  "Missoula Montana Airport KMSO",
+  "Billings Logan International Airport KBIL",
+  "Bert Mooney Airport (Butte) KBT",
+  "Helena Regional Airport KHLN",
+  "West Yellowstone Airport, KWYS",
+  "Great Falls International Airport KGTF",
+  "Mission Field Airport (KLVM)",
+  "Gardiner Airport, 29S",
+  "Threeforks Airport, 9S5",
+  "Idaho Falls Regional Airport KIDA",
+];
+
+function splitAirportOption(s: string) {
+  const mParen = s.match(/\(([A-Z0-9]{2,4})\)/);
+  const mEnd = s.match(/([A-Z0-9]{2,4})$/);
+  const code = mParen ? mParen[1] : mEnd ? mEnd[1] : "";
+  let name = s;
+  if (code) {
+    name = name.replace(new RegExp(`\\s*${code}$`), "").trim();
+  }
+  name = name.replace(/,\s*$/, "");
+  name = name.replace(/\s*\([A-Z0-9]{2,4}\)\s*$/, "");
+  return { name, code };
+}
+
 export default function Form() {
   const [fields, setFields] = useState<Fields>({
     firstName: "",
@@ -52,6 +83,18 @@ export default function Form() {
   );
   const formRef = useRef<HTMLFormElement | null>(null);
   const [dateType, setDateType] = useState<"text" | "date">("text");
+  const [airportOpen, setAirportOpen] = useState(false);
+  const airportRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const onDocClick = (e: MouseEvent) => {
+      if (airportRef.current && !airportRef.current.contains(e.target as Node)) {
+        setAirportOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onDocClick);
+    return () => document.removeEventListener("mousedown", onDocClick);
+  }, []);
 
   function validate(values: Fields): Errors {
     const e: Errors = {};
@@ -65,22 +108,6 @@ export default function Form() {
       e.email = "Please enter a valid email.";
     }
     // Airport (required)
-    const AIRPORT_OPTIONS = [
-      "Bozeman Yellowstone International Airport KBZN",
-      "Jackson Hole Airport, KJAC",
-      "Glacier park international airport (Kalispell) KGPI",
-      "Ennis - Big Sky Airport KEKS",
-      "Missoula Montana Airport KMSO",
-      "Billings Logan International Airport KBIL",
-      "Bert Mooney Airport (Butte) KBT",
-      "Helena Regional Airport KHLN",
-      "West Yellowstone Airport, KWYS",
-      "Great Falls International Airport KGTF",
-      "Mission Field Airport (KLVM)",
-      "Gardiner Airport, 29S",
-      "Threeforks Airport, 9S5",
-      "Idaho Falls Regional Airport KIDA",
-    ];
     if (!values.airport || !AIRPORT_OPTIONS.includes(values.airport)) {
       e.airport = "Please select an airport.";
     }
@@ -262,37 +289,70 @@ export default function Form() {
           </div>
         </div>
 
-        {/* Airport */}
-        <div className="w-full">
-          <select
+        {/* Airport (styled dropdown) */}
+        <div className="w-full relative" ref={airportRef}>
+          <input type="hidden" name="airport" value={fields.airport} />
+          <button
+            type="button"
             name="airport"
-            required
-            value={fields.airport}
-            onChange={(e) => setField("airport", e.target.value)}
+            aria-haspopup="listbox"
+            aria-expanded={airportOpen}
+            onClick={() => setAirportOpen((v) => !v)}
             className={
-              "flex border px-3 py-1 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full bg-white/25 border-gray-300 h-10 text-white placeholder:text-white text-sm" +
-              (errors.airport ? " border-red-500 ring-1 ring-red-500" : "")
+              "flex w-full justify-between items-center border px-3 h-10 bg-white/25 text-white text-sm transition-colors " +
+              (errors.airport ? "border-red-500 ring-1 ring-red-500" : "border-gray-300")
             }
             aria-invalid={Boolean(errors.airport) || undefined}
           >
-            <option value="" disabled>
-              Select Airport *
-            </option>
-            <option>Bozeman Yellowstone International Airport KBZN</option>
-            <option>Jackson Hole Airport, KJAC</option>
-            <option>Glacier park international airport (Kalispell) KGPI</option>
-            <option>Ennis - Big Sky Airport KEKS</option>
-            <option>Missoula Montana Airport KMSO</option>
-            <option>Billings Logan International Airport KBIL</option>
-            <option>Bert Mooney Airport (Butte) KBT</option>
-            <option>Helena Regional Airport KHLN</option>
-            <option>West Yellowstone Airport, KWYS</option>
-            <option>Great Falls International Airport KGTF</option>
-            <option>Mission Field Airport (KLVM)</option>
-            <option>Gardiner Airport, 29S</option>
-            <option>Threeforks Airport, 9S5</option>
-            <option>Idaho Falls Regional Airport KIDA</option>
-          </select>
+            <span className="truncate text-left">
+              {fields.airport || "Select Airport *"}
+            </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className={`w-4 h-4 scale-125 ml-2 transition-transform ${airportOpen ? "rotate-180" : "rotate-0"}`}
+              aria-hidden="true"
+            >
+              <path
+                fillRule="evenodd"
+                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+
+          {airportOpen && (
+            <div className="absolute left-1/2 top-full -translate-x-1/2 mt-2 w-80 max-w-[90vw] rounded-sm bg-stone-900/80 text-white shadow-2xl border border-white/10 backdrop-blur-md overflow-hidden z-20">
+              <div className="px-3 py-2 bg-black/30 text-[10px] tracking-[2px] font-semibold text-[#bd843b]">
+                SELECT AIRPORT
+              </div>
+              <ul role="listbox" className="text-xs divide-y divide-white/10 max-h-60 overflow-auto form-styled-scroll">
+                {AIRPORT_OPTIONS.map((opt) => {
+                  const { name, code } = splitAirportOption(opt);
+                  const active = fields.airport === opt;
+                  return (
+                    <li
+                      key={opt}
+                      role="option"
+                      aria-selected={active}
+                      className={
+                        "px-3 py-2 hover:bg-white/10 transition-colors flex items-center justify-between gap-2 " +
+                        (active ? "bg-white/10" : "")
+                      }
+                      onClick={() => {
+                        setField("airport", opt);
+                        setAirportOpen(false);
+                      }}
+                    >
+                      <span className="truncate">{name}</span>
+                      <span className="text-[11px] text-white/70">{code}</span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          )}
         </div>
 
         {/* Service Details */}

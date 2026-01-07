@@ -19,6 +19,56 @@ html, body {
   font-style: italic;
 }
 
+/* Scrollbar styling scoped for Contact form dropdowns */
+.form-styled-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #bd843b rgba(255, 255, 255, 0.15);
+}
+.form-styled-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.form-styled-scroll::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+.form-styled-scroll::-webkit-scrollbar-thumb {
+  background-color: #bd843b;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+.form-styled-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #a76c3b;
+}
+
+/* Scrollbar global */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #bd843b #181818; /* thumb, track */
+}
+
+/* WebKit */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #181818;  /* solid dark track */
+  border-radius: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #bd843b;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #a76c3b;
+}
+
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
