@@ -29,7 +29,7 @@ export default function Home() {
           <h1 className="text-white font-serif text-[34px] tracking-[10px] sm:text-[40px] sm:tracking-[14px] md:text-[50px] md:tracking-[20px] lg:text-[60px] lg:tracking-[30px] pb-3 leading-tight">
             FLIGHT-READY
             <br />
-            DETAILING AT BZN
+            DETAILING
           </h1>
 
           <p className="text-gray-200 text-[13px] sm:text-[14px] leading-relaxed pb-10">

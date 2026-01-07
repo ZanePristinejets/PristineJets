@@ -63,7 +63,7 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Pristine Jets",
   url: "https://mypristinejet.com/",
-  logo: "https://mypristinejet.com/imgs/logo.svg",
+  logo: "https://mypristinejet.com/logo.png",
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+1-406-595-9464",

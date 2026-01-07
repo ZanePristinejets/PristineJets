@@ -26,19 +26,20 @@ type Service = {
 };
 
 const airportsServices: Service[] = [
+  { title: "Bozeman Yellowstone International Airport", description: "KBZN", Icon: Plane },
   { title: "Jackson Hole Airport", description: "KJAC", Icon: Plane },
-  { title: "Kalispell Airport", description: "KFCA", Icon: Plane },
-  { title: "Ennis Airport", description: "KEKS", Icon: Plane },
-  { title: "Missoula Airport", description: "KMSO", Icon: Plane },
-  { title: "Billings Airport", description: "KBIL", Icon: Plane },
-  { title: "Butte Airport", description: "KBTM", Icon: Plane },
-  { title: "Helena Airport", description: "KHEL", Icon: Plane },
+  { title: "Glacier park international airport (Kalispell)", description: "KGPI", Icon: Plane },
+  { title: "Ennis - Big Sky Airport", description: "KEKS", Icon: Plane },
+  { title: "Missoula Montana Airport", description: "KMSO", Icon: Plane },
+  { title: "Billings Logan International Airport", description: "KBIL", Icon: Plane },
+  { title: "Bert Mooney Airport (Butte)", description: "KBT", Icon: Plane },
+  { title: "Helena Regional Airport", description: "KHLN", Icon: Plane },
   { title: "West Yellowstone Airport", description: "KWYS", Icon: Plane },
-  { title: "Greatfalls Airport", description: "KGTF", Icon: Plane },
-  { title: "Livingston Airport", description: "KLVM", Icon: Plane },
+  { title: "Great Falls International Airport", description: "KGTF", Icon: Plane },
+  { title: "Mission Field Airport", description: "KLVM", Icon: Plane },
   { title: "Gardiner Airport", description: "29S", Icon: Plane },
+  { title: "Idaho Falls Regional Airport", description: "KIDA", Icon: Plane },
   { title: "Threeforks Airport", description: "9S5", Icon: Plane },
-  { title: "idaho falls", description: "KIDA", Icon: Plane },
 ];
 
 const exteriorServices: Service[] = [
@@ -197,7 +198,7 @@ export default function Services() {
           <p className="text-gray-600 max-w-xl mx-auto text-[13px] sm:text-[12px] leading-relaxed">
             At Pristine Jets, every detail matters. From cabin to fuselage, our
             expert crew delivers precision cleaning, polishing, and protection
-            that keep your aircraft in top condition. Available 24/7 in Bozeman,
+            that keep your aircraft in top condition. Available 24/7 in Bozeman and all locations,
             we bring meticulous care wherever your jet is.
           </p>
         </div>

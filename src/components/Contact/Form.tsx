@@ -66,19 +66,20 @@ export default function Form() {
     }
     // Airport (required)
     const AIRPORT_OPTIONS = [
+      "Bozeman Yellowstone International Airport KBZN",
       "Jackson Hole Airport, KJAC",
-      "Kalispell Airport, KFCA",
-      "Ennis Airport, KEKS",
-      "Missoula Airport, KMSO",
-      "Billings Airport, KBIL",
-      "Butte Airport, KBTM",
-      "Helena Airport, KHEL",
+      "Glacier park international airport (Kalispell) KGPI",
+      "Ennis - Big Sky Airport KEKS",
+      "Missoula Montana Airport KMSO",
+      "Billings Logan International Airport KBIL",
+      "Bert Mooney Airport (Butte) KBT",
+      "Helena Regional Airport KHLN",
       "West Yellowstone Airport, KWYS",
-      "Greatfalls Airport, KGTF",
-      "Livingston Airport, KLVM",
+      "Great Falls International Airport KGTF",
+      "Mission Field Airport (KLVM)",
       "Gardiner Airport, 29S",
       "Threeforks Airport, 9S5",
-      "idaho falls, KIDA",
+      "Idaho Falls Regional Airport KIDA",
     ];
     if (!values.airport || !AIRPORT_OPTIONS.includes(values.airport)) {
       e.airport = "Please select an airport.";
@@ -277,19 +278,20 @@ export default function Form() {
             <option value="" disabled>
               Select Airport *
             </option>
+            <option>Bozeman Yellowstone International Airport KBZN</option>
             <option>Jackson Hole Airport, KJAC</option>
-            <option>Kalispell Airport, KFCA</option>
-            <option>Ennis Airport, KEKS</option>
-            <option>Missoula Airport, KMSO</option>
-            <option>Billings Airport, KBIL</option>
-            <option>Butte Airport, KBTM</option>
-            <option>Helena Airport, KHEL</option>
+            <option>Glacier park international airport (Kalispell) KGPI</option>
+            <option>Ennis - Big Sky Airport KEKS</option>
+            <option>Missoula Montana Airport KMSO</option>
+            <option>Billings Logan International Airport KBIL</option>
+            <option>Bert Mooney Airport (Butte) KBT</option>
+            <option>Helena Regional Airport KHLN</option>
             <option>West Yellowstone Airport, KWYS</option>
-            <option>Greatfalls Airport, KGTF</option>
-            <option>Livingston Airport, KLVM</option>
+            <option>Great Falls International Airport KGTF</option>
+            <option>Mission Field Airport (KLVM)</option>
             <option>Gardiner Airport, 29S</option>
             <option>Threeforks Airport, 9S5</option>
-            <option>idaho falls, KIDA</option>
+            <option>Idaho Falls Regional Airport KIDA</option>
           </select>
         </div>
 
