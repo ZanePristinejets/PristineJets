@@ -7,15 +7,15 @@ export default function About() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/imgs/about-background.webp"
-          alt="Man sitting in detailed Private jet"
+          src="/imgs/aircraft-detailers.webp"
+          alt="Aircraft detailers working on a private jet"
           fill
           priority
           fetchPriority="high"
           style={{ objectFit: "cover" }}
         />
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-black/65" />
       </div>
 
       {/* Content */}
@@ -44,7 +44,7 @@ export default function About() {
           <Link
             href="/about"
             aria-label="Learn More About Pristine Jets"
-            className="text-[#bd843b] hover:text-[#8c5523] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3"
+            className="text-[#e19f49] hover:text-[#bd7735] hover:cursor-pointer underline underline-offset-3 transition-all duration-300 tracking-[2px] uppercase text-xs py-3"
           >
             Learn More About Pristine Jets
           </Link>

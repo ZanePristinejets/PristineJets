@@ -10,6 +10,7 @@ type Fields = {
   email: string;
   phone: string; // optional
   dateOfService: string;
+  airport: string;
   aircraftModel: string;
   tailNumber: string;
   message: string;
@@ -40,6 +41,7 @@ export default function Form() {
     email: "",
     phone: "",
     dateOfService: "",
+    airport: "",
     aircraftModel: "",
     tailNumber: "",
     message: "",
@@ -61,6 +63,25 @@ export default function Form() {
     }
     if (!values.email || !isValidEmail(values.email.trim())) {
       e.email = "Please enter a valid email.";
+    }
+    // Airport (required)
+    const AIRPORT_OPTIONS = [
+      "Jackson Hole Airport, KJAC",
+      "Kalispell Airport, KFCA",
+      "Ennis Airport, KEKS",
+      "Missoula Airport, KMSO",
+      "Billings Airport, KBIL",
+      "Butte Airport, KBTM",
+      "Helena Airport, KHEL",
+      "West Yellowstone Airport, KWYS",
+      "Greatfalls Airport, KGTF",
+      "Livingston Airport, KLVM",
+      "Gardiner Airport, 29S",
+      "Threeforks Airport, 9S5",
+      "idaho falls, KIDA",
+    ];
+    if (!values.airport || !AIRPORT_OPTIONS.includes(values.airport)) {
+      e.airport = "Please select an airport.";
     }
     if (!values.aircraftModel || values.aircraftModel.trim().length < 2) {
       e.aircraftModel = "Aircraft model must be at least 2 characters.";
@@ -99,6 +120,7 @@ export default function Form() {
         "firstName",
         "lastName",
         "email",
+        "airport",
         "dateOfService",
         "aircraftModel",
         "tailNumber",
@@ -126,6 +148,7 @@ export default function Form() {
           email: v.email,
           phone: v.phone,
           dateOfService: v.dateOfService,
+          airport: v.airport,
           aircraftModel: v.aircraftModel,
           tailNumber: v.tailNumber,
           message: v.message,
@@ -236,6 +259,38 @@ export default function Form() {
               {...errProps("phone")}
             />
           </div>
+        </div>
+
+        {/* Airport */}
+        <div className="w-full">
+          <select
+            name="airport"
+            required
+            value={fields.airport}
+            onChange={(e) => setField("airport", e.target.value)}
+            className={
+              "flex border px-3 py-1 transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm w-full bg-white/25 border-gray-300 h-10 text-white placeholder:text-white text-sm" +
+              (errors.airport ? " border-red-500 ring-1 ring-red-500" : "")
+            }
+            aria-invalid={Boolean(errors.airport) || undefined}
+          >
+            <option value="" disabled>
+              Select Airport *
+            </option>
+            <option>Jackson Hole Airport, KJAC</option>
+            <option>Kalispell Airport, KFCA</option>
+            <option>Ennis Airport, KEKS</option>
+            <option>Missoula Airport, KMSO</option>
+            <option>Billings Airport, KBIL</option>
+            <option>Butte Airport, KBTM</option>
+            <option>Helena Airport, KHEL</option>
+            <option>West Yellowstone Airport, KWYS</option>
+            <option>Greatfalls Airport, KGTF</option>
+            <option>Livingston Airport, KLVM</option>
+            <option>Gardiner Airport, 29S</option>
+            <option>Threeforks Airport, 9S5</option>
+            <option>idaho falls, KIDA</option>
+          </select>
         </div>
 
         {/* Service Details */}

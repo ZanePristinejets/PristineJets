@@ -16,6 +16,7 @@ import {
   Toilet,
   Dog,
   Warehouse,
+  Plane,
 } from "lucide-react";
 
 type Service = {
@@ -23,6 +24,22 @@ type Service = {
   description: string;
   Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 };
+
+const airportsServices: Service[] = [
+  { title: "Jackson Hole Airport", description: "KJAC", Icon: Plane },
+  { title: "Kalispell Airport", description: "KFCA", Icon: Plane },
+  { title: "Ennis Airport", description: "KEKS", Icon: Plane },
+  { title: "Missoula Airport", description: "KMSO", Icon: Plane },
+  { title: "Billings Airport", description: "KBIL", Icon: Plane },
+  { title: "Butte Airport", description: "KBTM", Icon: Plane },
+  { title: "Helena Airport", description: "KHEL", Icon: Plane },
+  { title: "West Yellowstone Airport", description: "KWYS", Icon: Plane },
+  { title: "Greatfalls Airport", description: "KGTF", Icon: Plane },
+  { title: "Livingston Airport", description: "KLVM", Icon: Plane },
+  { title: "Gardiner Airport", description: "29S", Icon: Plane },
+  { title: "Threeforks Airport", description: "9S5", Icon: Plane },
+  { title: "idaho falls", description: "KIDA", Icon: Plane },
+];
 
 const exteriorServices: Service[] = [
   {
@@ -136,10 +153,11 @@ const hangerServices: Service[] = [
 ]
 
 export default function Services() {
-  const [selected, setSelected] = useState<"exterior" | "interior" | "hangar">("interior");
+  const [selected, setSelected] = useState<"airports" | "exterior" | "interior" | "hangar">("airports");
   const [expanded, setExpanded] = useState<
-    Record<"exterior" | "interior" | "hangar", boolean>
+    Record<"airports" | "exterior" | "interior" | "hangar", boolean>
   >({
+    airports: false,
     interior: false,
     exterior: false,
     hangar: false,
@@ -147,8 +165,15 @@ export default function Services() {
   const gridTopRef = useRef<HTMLDivElement | null>(null);
   const tabsRef = useRef<HTMLDivElement | null>(null);
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
-  const itemRefs = useRef<Array<HTMLDivElement | null>>([]);
-  const data = selected === "exterior" ? exteriorServices : selected === "interior" ? interiorServices : hangerServices;
+  const itemRefs = useRef<Array<HTMLElement | null>>([]);
+  const data =
+    selected === "airports"
+      ? airportsServices
+      : selected === "exterior"
+      ? exteriorServices
+      : selected === "interior"
+      ? interiorServices
+      : hangerServices;
   const isExpanded = expanded[selected];
   const visible = isExpanded ? data : data.slice(0, 4);
 
@@ -178,8 +203,9 @@ export default function Services() {
         </div>
 
         {/* Tabs */}
-        <div ref={tabsRef} className="flex justify-center gap-10">
+        <div ref={tabsRef} className="flex flex-wrap justify-center gap-3 sm:gap-6">
           {[
+            { key: "airports" as const, label: "AIRPORTS" },
             { key: "interior" as const, label: "INTERIOR" },
             { key: "exterior" as const, label: "EXTERIOR" },
             { key: "hangar" as const, label: "HANGAR" },
@@ -190,7 +216,7 @@ export default function Services() {
                 key={tab.key}
                 onClick={() => setSelected(tab.key)}
                 aria-pressed={active}
-                className="group hover:cursor-pointer relative pb-2 text-sm font-semibold tracking-[2px] text-black"
+                className="group hover:cursor-pointer relative pb-2 text-sm font-semibold tracking-[2px] text-black w-full sm:w-auto text-center"
               >
                 {tab.label}
                 <span
@@ -206,32 +232,58 @@ export default function Services() {
           })}
         </div>
 
-        {/* Services Grid */}
-        <div
-          ref={gridTopRef}
-          className="grid gap-6 md:gap-0 md:grid-cols-2 max-w-4xl mx-auto"
-        >
-          {visible.map(({ title, description, Icon }, idx) => (
-            <div
-              key={title}
-              ref={(el) => {
-                itemRefs.current[idx] = el;
-              }}
-              className="border border-gray-200 p-6 sm:p-8 lg:p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left"
-            >
-              <div className="mb-4">
-                <Icon className="w-8 h-8 lg:w-10 lg:h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />
+        {/* Services: Airports (compact list) vs Others (original grid) */}
+        {selected === "airports" ? (
+          <div ref={gridTopRef} className="max-w-3xl mx-auto">
+            <ul className="divide-y divide-gray-200">
+              {visible.map(({ title, description, Icon }, idx) => (
+                <li
+                  key={title}
+                  ref={(el) => {
+                    itemRefs.current[idx] = el;
+                  }}
+                  className="group flex items-center justify-center gap-4 py-4 px-2 transition-colors duration-200 hover:bg-gray-50"
+                >
+
+                  <div className="flex-1 text-center">
+                    <h3 className="text-sm font-semibold tracking-[2px] text-gray-900 uppercase">
+                      {title}
+                    </h3>
+                    <p className="text-[13px] text-gray-600 leading-relaxed">
+                      {description}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div
+            ref={gridTopRef}
+            className="grid gap-6 md:gap-0 md:grid-cols-2 max-w-4xl mx-auto"
+          >
+            {visible.map(({ title, description, Icon }, idx) => (
+              <div
+                key={title}
+                ref={(el) => {
+                  itemRefs.current[idx] = el;
+                }}
+                className="border border-gray-200 p-6 sm:p-8 lg:p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left"
+              >
+                <div className="mb-4">
+                  <Icon className="w-8 h-8 lg:w-10 lg:h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />
+                </div>
+                <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
+                  {title}
+                </h3>
+                <p className="text-gray-600 text-[13px] leading-relaxed">
+                  {description}
+                </p>
               </div>
-              <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
-                {title}
-              </h3>
-              <p className="text-gray-600 text-[13px] leading-relaxed">
-                {description}
-              </p>
-            </div>
-          ))}
-          {expanded && <span />}
-        </div>
+            ))}
+            {expanded && <span />}
+          </div>
+        )}
         {data.length > 4 && (
           <div className="flex justify-center">
             <button
@@ -242,14 +294,25 @@ export default function Services() {
                   const nextState = {
                     ...prev,
                     [selected]: nextForSelected,
-                  } as Record<"exterior" | "interior" | "hangar", boolean>;
+                  } as Record<"airports" | "exterior" | "interior" | "hangar", boolean>;
                   requestAnimationFrame(() => {
                     if (nextForSelected) {
-                      const lastStartIndex = Math.max(data.length - 4, 0);
-                      itemRefs.current[lastStartIndex]?.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                      });
+                      if (selected === "airports") {
+                        const container = gridTopRef.current;
+                        if (container) {
+                          const bottom =
+                            container.getBoundingClientRect().bottom + window.scrollY;
+                          const margin = 120; // leave some space before the end
+                          const targetY = Math.max(bottom - window.innerHeight + margin, 0);
+                          window.scrollTo({ top: targetY, behavior: "smooth" });
+                        }
+                      } else {
+                        const lastStartIndex = Math.max(data.length - 4, 0);
+                        itemRefs.current[lastStartIndex]?.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
                     } else {
                       scrollIntoViewWithOffset(tabsRef.current, -80);
                     }

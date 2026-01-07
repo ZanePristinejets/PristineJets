@@ -6,7 +6,13 @@ export default function Header() {
     <header className="absolute w-full flex justify-between items-center p-4 sm:p-5 lg:p-6 z-10">
       {/* Logo */}
       <Link href="/" aria-label="Return to Home Page" className="ml-0 lg:ml-64 hover:cursor-pointer">
-        <Image src="/imgs/logo.svg" alt="Pristine Jets Logo" width={65} height={65} />
+        <Image
+          src="/imgs/logo.svg"
+          alt="Pristine Jets Logo"
+          width={65}
+          height={65}
+          className="w-16 h-16 sm:w-20 sm:h-20"
+        />
       </Link>
 
       {/* Contact button */}

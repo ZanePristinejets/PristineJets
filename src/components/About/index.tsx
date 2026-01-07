@@ -9,13 +9,13 @@ export default function About() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
-            src="/imgs/about-background.webp"
+            src="/imgs/aircraft-detailers.webp"
             alt="Man sitting in detailed Private jet"
             fill
             priority
             fetchPriority="high"
             sizes="100vw"
-            className="object-cover object-center"
+            className="object-cover object-[80%_center] sm:object-center"
           />
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/80" />
