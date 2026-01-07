@@ -84,6 +84,7 @@ export default function RootLayout({
       <body className={`${avenir.variable} ${didot.variable}`}>
         {/* Google Analytics (gtag) */}
         <Script
+          id="analytics-script"
           src="https://www.googletagmanager.com/gtag/js?id=G-SK60D4KXHP"
           strategy="afterInteractive"
         />
@@ -96,6 +97,7 @@ export default function RootLayout({
           `}
         </Script>
         <Script
+          id="html-script"
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(organizationJsonLd),
