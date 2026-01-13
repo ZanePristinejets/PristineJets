@@ -11,7 +11,7 @@ const testimonials = [
       '<span class="font-bold">Pristine Jets</span> transformed our aircraft interior with their deep clean service -every surface felt <span class="font-bold">fresh, spotless,</span> and truly <span class="font-bold">first-class</span>. Their attention to detail is unmatched.',
     name: "Stella Doe",
     subtitle: "FUSCE FINIBUS IACULIS VELIT",
-    image: "/imgs/professional-woman-smiling.png",
+    image: "/professional-woman-smiling.png",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const testimonials = [
       '<span class="font-bold">Outstanding</span> service and attention to <span class="font-bold">detail.</span> The team exceeded our expectations in <span class="font-bold">every way possible.</span>',
     name: "John Smith",
     subtitle: "LOREM IPSUM DOLOR SIT",
-    image: "/imgs/professional-man-suit.png",
+    image: "/professional-man-suit.png",
   },
 ];
 

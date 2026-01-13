@@ -7,7 +7,7 @@ export default function Home() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/imgs/hero-background.webp"
+          src="/hero-background.webp"
           alt="Private jet with detailed interior"
           fill
           priority

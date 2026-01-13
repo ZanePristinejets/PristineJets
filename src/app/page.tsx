@@ -2,22 +2,22 @@ import type { Metadata } from "next";
 import Home from "@/components/Home";
 
 export const metadata: Metadata = {
-  title: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
+  title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
   description:
-    "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to book exterior and interior jet cleaning.",
+    "24/7 mobile jet detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to schedule aircraft cleaning.",
   alternates: {
-    canonical: "https://mypristinejet.com/",
+    canonical: "https://pristinejetdetailing.com/",
   },
   openGraph: {
     type: "website",
-    url: "https://mypristinejet.com/",
-    title: "Pristine Jets | Aircraft Detailing in Bozeman, MT",
+    url: "https://pristinejetdetailing.com/",
+    title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
     description:
-      "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to book exterior and interior jet cleaning.",
+      "24/7 mobile jet detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to schedule aircraft cleaning.",
     siteName: "Pristine Jets",
     images: [
       {
-        url: "https://mypristinejet.com/imgs/hero-background.webp",
+        url: "https://pristinejetdetailing.com/hero-background.webp",
         width: 1200,
         height: 630,
         alt: "Pristine Jets aircraft detailing at BZN",
@@ -26,10 +26,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Pristine Jets | Aircraft Detailing at BZN",
+    title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
     description:
       "24/7 mobile aircraft detailing in Bozeman, MT at BZN.",
-    images: ["https://mypristinejet.com/imgs/hero-background.webp"],
+    images: ["https://pristinejetdetailing.com/hero-background.webp"],
   },
 };
 

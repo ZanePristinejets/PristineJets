@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://mypristinejet.com/sitemap.xml",
+    sitemap: "https://pristinejetdetailing.com/sitemap.xml",
   };
 }

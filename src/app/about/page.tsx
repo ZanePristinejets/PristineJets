@@ -6,18 +6,18 @@ export const metadata: Metadata = {
   description:
     "Learn about Pristine Jets, a Bozeman-based aircraft detailing company providing 24/7 mobile jet cleaning, protection, and brightwork services at Bozeman Yellowstone International Airport (BZN).",
   alternates: {
-    canonical: "https://mypristinejet.com/about",
+    canonical: "https://pristinejetdetailing.com/about",
   },
   openGraph: {
     type: "article",
-    url: "https://mypristinejet.com/about",
+    url: "https://pristinejetdetailing.com/about",
     title: "About Pristine Jets | Aircraft Detailing in Bozeman, MT",
     description:
       "Bozeman-based aircraft detailing: exterior and interior jet care, brightwork polishing, protective coatings, and 24/7 mobile service at BZN.",
     siteName: "Pristine Jets",
     images: [
       {
-        url: "https://mypristinejet.com/imgs/about-background.webp",
+        url: "https://pristinejetdetailing.com/about-background.webp",
         width: 1200,
         height: 630,
         alt: "About Pristine Jets aircraft detailing",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "About Pristine Jets | Aircraft Detailing",
     description:
       "24/7 mobile aircraft detailing in Bozeman, MT at BZN. Exterior and interior care, brightwork polishing, protective coatings.",
-    images: ["https://mypristinejet.com/imgs/about-background.webp"],
+    images: ["https://pristinejetdetailing.com/about-background.webp"],
   },
 };
 

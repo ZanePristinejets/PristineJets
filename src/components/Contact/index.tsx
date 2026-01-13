@@ -46,7 +46,7 @@ export default function Contact({
       {/* Background Image */}
       <div className="absolute inset-0 pointer-events-none">
         <Image
-          src="/imgs/bzn-plane-2.webp"
+          src="/bzn-plane-2.webp"
           alt="Aircraft on the ramp at Bozeman Yellowstone International Airport"
           fill
           priority

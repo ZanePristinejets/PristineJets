@@ -30,7 +30,7 @@ export default function Header() {
         className="ml-0 lg:ml-64 hover:cursor-pointer"
       >
         <Image
-          src="/imgs/logo.svg"
+          src="/logo.svg"
           alt="Pristine Jets Logo"
           width={65}
           height={65}

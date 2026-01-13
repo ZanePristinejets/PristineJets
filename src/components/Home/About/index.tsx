@@ -7,7 +7,7 @@ export default function About() {
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/imgs/aircraft-detailers.webp"
+          src="/aircraft-detailers.webp"
           alt="Aircraft detailers working on a private jet"
           fill
           priority
