@@ -93,19 +93,21 @@ export default function RootLayout({
       </head>
 
       <body className={`${avenir.variable} ${didot.variable}`}>
-        {/* Google Analytics (gtag) */}
+        {/* Google Analytics + ads (gtag) */}
         <Script
-          id="analytics-script"
+          id="gtag-src"
           src="https://www.googletagmanager.com/gtag/js?id=G-SK60D4KXHP"
           strategy="afterInteractive"
         />
+
         <Script id="gtag-init" strategy="afterInteractive">
           {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-SK60D4KXHP');
-          `}
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SK60D4KXHP');
+    gtag('config', 'AW-17878807824');
+  `}
         </Script>
 
         <Banner />
