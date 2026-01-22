@@ -30,13 +30,13 @@ const didot = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://pristinejetdetailing.com"),
-  title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
+  title: "Jet Detailing in Bozeman, MT | Pristine Jets",
   description:
     "24/7 mobile jet detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to schedule aircraft cleaning.",
   openGraph: {
     type: "website",
     url: "https://pristinejetdetailing.com",
-    title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
+    title: "Jet Detailing in Bozeman, MT | Pristine Jets",
     description:
       "24/7 mobile jet detailing at Bozeman Yellowstone International Airport (BZN). Exterior washes, brightwork polishing, interior cleaning, and protective coatings.",
     siteName: "Pristine Jets",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jet Detailing Bozeman MT | Aircraft Detailing for Private Jets",
+    title: "Jet Detailing in Bozeman, MT | Pristine Jets",
     description: "24/7 mobile jet detailing in Bozeman, MT.",
     images: ["https://pristinejetdetailing.com/hero-background.webp"],
   },

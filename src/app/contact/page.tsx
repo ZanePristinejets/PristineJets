@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
-  title: "Contact | Schedule Jet Detailing at BZN",
+  title: "Schedule Jet Detailing in Bozeman, MT | Pristine Jets",
   description:
     "24/7 mobile jet detailing at Bozeman Yellowstone International Airport. Call (406) 595-9464 for a free quote or to schedule jet cleaning.",
   alternates: {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://pristinejetdetailing.com/contact",
-    title: "Contact Pristine Jets | Aircraft Detailing at BZN",
+    title: "Schedule Jet Detailing in Bozeman, MT | Pristine Jets",
     description:
       "Schedule aircraft detailing in Bozeman, MT. 24/7 mobile crew for exterior and interior jet care at BZN.",
     siteName: "Pristine Jets",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Contact Pristine Jets | Aircraft Detailing",
+    title: "Schedule Jet Detailing in Bozeman, MT | Pristine Jets",
     description:
       "24/7 mobile aircraft detailing at Bozeman Yellowstone International Airport (BZN).",
     images: ["https://pristinejetdetailing.com/bzn-plane-2.webp"],
