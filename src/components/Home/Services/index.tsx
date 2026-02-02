@@ -32,7 +32,7 @@ const airportsServices: Service[] = [
   { title: "Ennis - Big Sky Airport", description: "KEKS", Icon: Plane },
   { title: "Missoula Montana Airport", description: "KMSO", Icon: Plane },
   { title: "Billings Logan International Airport", description: "KBIL", Icon: Plane },
-  { title: "Bert Mooney Airport (Butte)", description: "KBT", Icon: Plane },
+  { title: "Bert Mooney Airport (Butte)", description: "KBTM", Icon: Plane },
   { title: "Helena Regional Airport", description: "KHLN", Icon: Plane },
   { title: "West Yellowstone Airport", description: "KWYS", Icon: Plane },
   { title: "Great Falls International Airport", description: "KGTF", Icon: Plane },

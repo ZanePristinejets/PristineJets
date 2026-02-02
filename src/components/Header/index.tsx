@@ -98,7 +98,7 @@ export default function Header() {
                 </li>
                 <li className="px-3 py-2 hover:bg-white/10 transition-colors flex items-center justify-between gap-2" role="menuitem">
                   <span>Bert Mooney Airport (Butte)</span>
-                  <span className="text-[11px] text-white/70">KBT</span>
+                  <span className="text-[11px] text-white/70">KBTM</span>
                 </li>
                 <li className="px-3 py-2 hover:bg-white/10 transition-colors flex items-center justify-between gap-2" role="menuitem">
                   <span>Helena Regional Airport</span>

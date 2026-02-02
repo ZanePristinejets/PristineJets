@@ -42,7 +42,7 @@ const AIRPORT_OPTIONS = [
   "Ennis - Big Sky Airport KEKS",
   "Missoula Montana Airport KMSO",
   "Billings Logan International Airport KBIL",
-  "Bert Mooney Airport (Butte) KBT",
+  "Bert Mooney Airport (Butte) KBTM",
   "Helena Regional Airport KHLN",
   "West Yellowstone Airport, KWYS",
   "Great Falls International Airport KGTF",
