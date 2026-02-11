@@ -13,6 +13,7 @@ type Fields = {
   airport: string;
   aircraftModel: string;
   tailNumber: string;
+  registrationNumber: string;
   message: string;
 };
 
@@ -75,6 +76,7 @@ export default function Form() {
     airport: "",
     aircraftModel: "",
     tailNumber: "",
+    registrationNumber: "",
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
@@ -114,6 +116,15 @@ export default function Form() {
     if (!values.aircraftModel || values.aircraftModel.trim().length < 2) {
       e.aircraftModel = "Aircraft model must be at least 2 characters.";
     }
+
+    if (!values.tailNumber || values.tailNumber.trim().length < 2) {
+      e.tailNumber = "Tail number is required.";
+    }
+
+    if (!values.registrationNumber || values.registrationNumber.trim().length < 2) {
+      e.registrationNumber = "Registration number is required.";
+    }
+
     if (values.phone) {
       const digits = onlyDigits(values.phone);
       if (digits.length !== 10) {
@@ -152,6 +163,7 @@ export default function Form() {
         "dateOfService",
         "aircraftModel",
         "tailNumber",
+        "registrationNumber",
         "phone",
         "message",
       ];
@@ -179,6 +191,7 @@ export default function Form() {
           airport: v.airport,
           aircraftModel: v.aircraftModel,
           tailNumber: v.tailNumber,
+          registrationNumber: v.registrationNumber,
           message: v.message,
           "bot-field": "",
           redirect: "/contact/success",
@@ -356,46 +369,65 @@ export default function Form() {
         </div>
 
         {/* Service Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 w-full">
-          <div className="w-full">
-            <Input
-              type={dateType}
-              name="dateOfService"
-              placeholder={dateType === "text" ? "Service date" : undefined}
-              value={fields.dateOfService}
-              onChange={(e) => setField("dateOfService", e.target.value)}
-              onFocus={() => setDateType("date")}
-              onBlur={() => {
-                if (!fields.dateOfService) setDateType("text");
-              }}
-              {...errProps(
-                "dateOfService",
-                "[color-scheme:dark] [&::-webkit-calendar-picker-indicator]:invert"
-              )}
-            />
+        <div className="space-y-2 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
+            <div className="w-full">
+              <Input
+                type={dateType}
+                name="dateOfService"
+                placeholder={dateType === "text" ? "Service date" : undefined}
+                value={fields.dateOfService}
+                onChange={(e) => setField("dateOfService", e.target.value)}
+                onFocus={() => setDateType("date")}
+                onBlur={() => {
+                  if (!fields.dateOfService) setDateType("text");
+                }}
+                {...errProps(
+                  "dateOfService",
+                  "[color-scheme:dark] [&::-webkit-calendar-picker-indicator]:invert"
+                )}
+              />
+            </div>
+            <div className="w-full">
+              <Input
+                type="text"
+                name="aircraftModel"
+                placeholder="Aircraft Model *"
+                value={fields.aircraftModel}
+                onChange={(e) => setField("aircraftModel", e.target.value)}
+                required
+                {...errProps("aircraftModel")}
+              />
+            </div>
           </div>
-          <div className="w-full">
-            <Input
-              type="text"
-              name="aircraftModel"
-              placeholder="Aircraft Model *"
-              value={fields.aircraftModel}
-              onChange={(e) => setField("aircraftModel", e.target.value)}
-              required
-              {...errProps("aircraftModel")}
-            />
-          </div>
-          <div className="w-full">
-            <Input
-              type="text"
-              name="tailNumber"
-              placeholder="Tail Number"
-              value={fields.tailNumber}
-              onChange={(e) =>
-                setField("tailNumber", e.target.value.toUpperCase())
-              }
-              {...errProps("tailNumber")}
-            />
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
+            <div className="w-full">
+              <Input
+                type="text"
+                name="tailNumber"
+                placeholder="Tail Number *"
+                value={fields.tailNumber}
+                onChange={(e) =>
+                  setField("tailNumber", e.target.value.toUpperCase())
+                }
+                required
+                {...errProps("tailNumber")}
+              />
+            </div>
+            <div className="w-full">
+              <Input
+                type="text"
+                name="registrationNumber"
+                placeholder="Registration Number *"
+                value={fields.registrationNumber}
+                onChange={(e) =>
+                  setField("registrationNumber", e.target.value.toUpperCase())
+                }
+                required
+                {...errProps("registrationNumber")}
+              />
+            </div>
           </div>
         </div>
 

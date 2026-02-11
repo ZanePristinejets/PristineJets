@@ -34,8 +34,7 @@ export default function Home() {
 
           <p className="text-gray-200 text-[13px] sm:text-[14px] leading-relaxed pb-10">
             24/7 mobile crew delivering meticulous exterior & interior care
-            coordinated with local FBOs,
-            <br className="hidden md:block" />
+            coordinated with local FBOs, <br className="hidden md:block" />
             under strict safety and aviation insurance.
           </p>
 
