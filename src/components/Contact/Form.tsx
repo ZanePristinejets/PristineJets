@@ -13,7 +13,6 @@ type Fields = {
   airport: string;
   aircraftModel: string;
   tailNumber: string;
-  registrationNumber: string;
   message: string;
 };
 
@@ -76,12 +75,11 @@ export default function Form() {
     airport: "",
     aircraftModel: "",
     tailNumber: "",
-    registrationNumber: "",
     message: "",
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "ok" | "err">(
-    "idle"
+    "idle",
   );
   const formRef = useRef<HTMLFormElement | null>(null);
   const [dateType, setDateType] = useState<"text" | "date">("text");
@@ -90,7 +88,10 @@ export default function Form() {
 
   useEffect(() => {
     const onDocClick = (e: MouseEvent) => {
-      if (airportRef.current && !airportRef.current.contains(e.target as Node)) {
+      if (
+        airportRef.current &&
+        !airportRef.current.contains(e.target as Node)
+      ) {
         setAirportOpen(false);
       }
     };
@@ -118,11 +119,7 @@ export default function Form() {
     }
 
     if (!values.tailNumber || values.tailNumber.trim().length < 2) {
-      e.tailNumber = "Tail number is required.";
-    }
-
-    if (!values.registrationNumber || values.registrationNumber.trim().length < 2) {
-      e.registrationNumber = "Registration number is required.";
+      e.tailNumber = "Tail / registration number is required.";
     }
 
     if (values.phone) {
@@ -163,14 +160,13 @@ export default function Form() {
         "dateOfService",
         "aircraftModel",
         "tailNumber",
-        "registrationNumber",
         "phone",
         "message",
       ];
       const firstKey = order.find((k) => eMap[k]);
       if (firstKey && formRef.current) {
         const el = formRef.current.querySelector<HTMLElement>(
-          `[name="${firstKey}"]`
+          `[name="${firstKey}"]`,
         );
         el?.focus();
       }
@@ -191,7 +187,6 @@ export default function Form() {
           airport: v.airport,
           aircraftModel: v.aircraftModel,
           tailNumber: v.tailNumber,
-          registrationNumber: v.registrationNumber,
           message: v.message,
           "bot-field": "",
           redirect: "/contact/success",
@@ -313,7 +308,9 @@ export default function Form() {
             onClick={() => setAirportOpen((v) => !v)}
             className={
               "flex w-full justify-between items-center border px-3 h-10 bg-white/25 text-white text-sm transition-colors " +
-              (errors.airport ? "border-red-500 ring-1 ring-red-500" : "border-gray-300")
+              (errors.airport
+                ? "border-red-500 ring-1 ring-red-500"
+                : "border-gray-300")
             }
             aria-invalid={Boolean(errors.airport) || undefined}
           >
@@ -340,7 +337,10 @@ export default function Form() {
               <div className="px-3 py-2 bg-black/30 text-[10px] tracking-[2px] font-semibold text-[#bd843b]">
                 SELECT AIRPORT
               </div>
-              <ul role="listbox" className="text-xs divide-y divide-white/10 max-h-60 overflow-auto form-styled-scroll">
+              <ul
+                role="listbox"
+                className="text-xs divide-y divide-white/10 max-h-60 overflow-auto form-styled-scroll"
+              >
                 {AIRPORT_OPTIONS.map((opt) => {
                   const { name, code } = splitAirportOption(opt);
                   const active = fields.airport === opt;
@@ -384,7 +384,7 @@ export default function Form() {
                 }}
                 {...errProps(
                   "dateOfService",
-                  "[color-scheme:dark] [&::-webkit-calendar-picker-indicator]:invert"
+                  "[color-scheme:dark] [&::-webkit-calendar-picker-indicator]:invert",
                 )}
               />
             </div>
@@ -401,33 +401,18 @@ export default function Form() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
-            <div className="w-full">
-              <Input
-                type="text"
-                name="tailNumber"
-                placeholder="Tail Number *"
-                value={fields.tailNumber}
-                onChange={(e) =>
-                  setField("tailNumber", e.target.value.toUpperCase())
-                }
-                required
-                {...errProps("tailNumber")}
-              />
-            </div>
-            <div className="w-full">
-              <Input
-                type="text"
-                name="registrationNumber"
-                placeholder="Registration Number *"
-                value={fields.registrationNumber}
-                onChange={(e) =>
-                  setField("registrationNumber", e.target.value.toUpperCase())
-                }
-                required
-                {...errProps("registrationNumber")}
-              />
-            </div>
+          <div className="w-full">
+            <Input
+              type="text"
+              name="tailNumber"
+              placeholder="Tail / Registration Number *"
+              value={fields.tailNumber}
+              onChange={(e) =>
+                setField("tailNumber", e.target.value.toUpperCase())
+              }
+              required
+              {...errProps("tailNumber")}
+            />
           </div>
         </div>
 
