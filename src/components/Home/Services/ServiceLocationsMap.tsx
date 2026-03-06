@@ -103,7 +103,7 @@ const pinIcon = L.divIcon({
   html: `
   <div style="position:relative;width:28px;height:40px;">
     <div style="position:absolute;top:0;left:2px;width:24px;height:24px;border-radius:50%;border:2px solid #bd843b;overflow:hidden;background:#fff;z-index:2;">
-      <img src="/logo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+      <img src="/logo.png" alt="Pristine Jets Logo" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
     </div>
     <div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:16px solid #bd843b;z-index:1;"></div>
   </div>`,
