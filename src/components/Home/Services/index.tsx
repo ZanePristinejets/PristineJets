@@ -1,5 +1,14 @@
 "use client";
 import { useState, useRef } from "react";
+import dynamic from "next/dynamic";
+
+const ServiceLocationsMap = dynamic(() => import("./ServiceLocationsMap"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-[400px] sm:h-[480px] rounded-sm border-4 border-[#bd843b] bg-gray-100" />
+  ),
+});
+
 import {
   Sparkle,
   BrickWallShield,
@@ -26,16 +35,32 @@ type Service = {
 };
 
 const airportsServices: Service[] = [
-  { title: "Bozeman Yellowstone International Airport", description: "KBZN", Icon: Plane },
+  {
+    title: "Bozeman Yellowstone International Airport",
+    description: "KBZN",
+    Icon: Plane,
+  },
   { title: "Jackson Hole Airport", description: "KJAC", Icon: Plane },
-  { title: "Glacier park international airport (Kalispell)", description: "KGPI", Icon: Plane },
+  {
+    title: "Glacier park international airport (Kalispell)",
+    description: "KGPI",
+    Icon: Plane,
+  },
   { title: "Ennis - Big Sky Airport", description: "KEKS", Icon: Plane },
   { title: "Missoula Montana Airport", description: "KMSO", Icon: Plane },
-  { title: "Billings Logan International Airport", description: "KBIL", Icon: Plane },
+  {
+    title: "Billings Logan International Airport",
+    description: "KBIL",
+    Icon: Plane,
+  },
   { title: "Bert Mooney Airport (Butte)", description: "KBTM", Icon: Plane },
   { title: "Helena Regional Airport", description: "KHLN", Icon: Plane },
   { title: "West Yellowstone Airport", description: "KWYS", Icon: Plane },
-  { title: "Great Falls International Airport", description: "KGTF", Icon: Plane },
+  {
+    title: "Great Falls International Airport",
+    description: "KGTF",
+    Icon: Plane,
+  },
   { title: "Mission Field Airport", description: "KLVM", Icon: Plane },
   { title: "Gardiner Airport", description: "29S", Icon: Plane },
   { title: "Idaho Falls Regional Airport", description: "KIDA", Icon: Plane },
@@ -151,14 +176,17 @@ const hangerServices: Service[] = [
       "A quick exterior refresh to remove surface dust, fingerprints, and light debris using aviation-safe microfiber techniques. Ideal for pre-flight touch-ups or routine hangar upkeep.",
     Icon: Sparkle,
   },
-]
+];
 
 export default function Services() {
-  const [selected, setSelected] = useState<"airports" | "exterior" | "interior" | "hangar">("airports");
+  const [selected, setSelected] = useState<
+    "locations" | "exterior" | "interior" | "hangar"
+  >("locations");
+  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<
-    Record<"airports" | "exterior" | "interior" | "hangar", boolean>
+    Record<"locations" | "exterior" | "interior" | "hangar", boolean>
   >({
-    airports: false,
+    locations: false,
     interior: false,
     exterior: false,
     hangar: false,
@@ -168,13 +196,13 @@ export default function Services() {
   const toggleBtnRef = useRef<HTMLButtonElement | null>(null);
   const itemRefs = useRef<Array<HTMLElement | null>>([]);
   const data =
-    selected === "airports"
+    selected === "locations"
       ? airportsServices
       : selected === "exterior"
-      ? exteriorServices
-      : selected === "interior"
-      ? interiorServices
-      : hangerServices;
+        ? exteriorServices
+        : selected === "interior"
+          ? interiorServices
+          : hangerServices;
   const isExpanded = expanded[selected];
   const visible = isExpanded ? data : data.slice(0, 4);
 
@@ -198,15 +226,18 @@ export default function Services() {
           <p className="text-gray-600 max-w-xl mx-auto text-[13px] sm:text-[12px] leading-relaxed">
             At Pristine Jets, every detail matters. From cabin to fuselage, our
             expert crew delivers precision cleaning, polishing, and protection
-            that keep your aircraft in top condition. Available 24/7 in Bozeman and all locations,
-            we bring meticulous care wherever your jet is.
+            that keep your aircraft in top condition. Available 24/7 in Bozeman
+            and all locations, we bring meticulous care wherever your jet is.
           </p>
         </div>
 
         {/* Tabs */}
-        <div ref={tabsRef} className="flex flex-wrap justify-center gap-3 sm:gap-6">
+        <div
+          ref={tabsRef}
+          className="flex flex-wrap justify-center gap-3 sm:gap-6"
+        >
           {[
-            { key: "airports" as const, label: "AIRPORTS" },
+            { key: "locations" as const, label: "LOCATIONS" },
             { key: "interior" as const, label: "INTERIOR" },
             { key: "exterior" as const, label: "EXTERIOR" },
             { key: "hangar" as const, label: "HANGAR" },
@@ -233,30 +264,46 @@ export default function Services() {
           })}
         </div>
 
-        {/* Services: Airports (compact list) vs Others (original grid) */}
-        {selected === "airports" ? (
-          <div ref={gridTopRef} className="max-w-3xl mx-auto">
-            <ul className="divide-y divide-gray-200">
-              {visible.map(({ title, description, Icon }, idx) => (
-                <li
-                  key={title}
-                  ref={(el) => {
-                    itemRefs.current[idx] = el;
-                  }}
-                  className="group flex items-center justify-center gap-4 py-4 px-2 transition-colors duration-200 hover:bg-gray-50"
-                >
-
-                  <div className="flex-1 text-center">
-                    <h3 className="text-sm font-semibold tracking-[2px] text-gray-900 uppercase">
-                      {title}
-                    </h3>
-                    <p className="text-[13px] text-gray-600 leading-relaxed">
-                      {description}
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
+        {/* Services: Locations (side-by-side) vs Others (original grid) */}
+        {selected === "locations" ? (
+          <div
+            ref={gridTopRef}
+            className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-stretch"
+          >
+            {/* Airport list — left */}
+            <div className="w-full md:w-64 shrink-0 h-[400px] sm:h-[480px] overflow-y-auto border border-gray-200 rounded-sm">
+              <ul>
+                {airportsServices.map(({ title, description }) => {
+                  const isActive = selectedLocation === description;
+                  return (
+                    <li
+                      key={title}
+                      onClick={() =>
+                        setSelectedLocation(isActive ? null : description)
+                      }
+                      className={`py-3 px-4 cursor-pointer transition-colors duration-150 border-l-2 ${
+                        isActive
+                          ? "bg-amber-50 border-[#bd843b]"
+                          : "border-transparent hover:bg-gray-50 hover:border-l-2 hover:border-gray-900"
+                      }`}
+                    >
+                      <h3
+                        className={`text-xs font-semibold tracking-[2px] uppercase leading-snug ${isActive ? "text-[#bd843b]" : "text-gray-900"}`}
+                      >
+                        {title}
+                      </h3>
+                      <p className="text-[12px] text-gray-500 mt-0.5">
+                        {description}
+                      </p>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            {/* Map — right */}
+            <div className="flex-1">
+              <ServiceLocationsMap selectedCode={selectedLocation} onReset={() => setSelectedLocation(null)} />
+            </div>
           </div>
         ) : (
           <div
@@ -285,7 +332,7 @@ export default function Services() {
             {expanded && <span />}
           </div>
         )}
-        {data.length > 4 && (
+        {data.length > 4 && selected !== "locations" && (
           <div className="flex justify-center">
             <button
               ref={toggleBtnRef}
@@ -295,25 +342,17 @@ export default function Services() {
                   const nextState = {
                     ...prev,
                     [selected]: nextForSelected,
-                  } as Record<"airports" | "exterior" | "interior" | "hangar", boolean>;
+                  } as Record<
+                    "locations" | "exterior" | "interior" | "hangar",
+                    boolean
+                  >;
                   requestAnimationFrame(() => {
                     if (nextForSelected) {
-                      if (selected === "airports") {
-                        const container = gridTopRef.current;
-                        if (container) {
-                          const bottom =
-                            container.getBoundingClientRect().bottom + window.scrollY;
-                          const margin = 120; // leave some space before the end
-                          const targetY = Math.max(bottom - window.innerHeight + margin, 0);
-                          window.scrollTo({ top: targetY, behavior: "smooth" });
-                        }
-                      } else {
-                        const lastStartIndex = Math.max(data.length - 4, 0);
-                        itemRefs.current[lastStartIndex]?.scrollIntoView({
-                          behavior: "smooth",
-                          block: "start",
-                        });
-                      }
+                      const lastStartIndex = Math.max(data.length - 4, 0);
+                      itemRefs.current[lastStartIndex]?.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                      });
                     } else {
                       scrollIntoViewWithOffset(tabsRef.current, -80);
                     }
