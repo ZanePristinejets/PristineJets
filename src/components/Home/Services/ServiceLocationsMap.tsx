@@ -100,10 +100,16 @@ const airportLocations = [
 
 const pinIcon = L.divIcon({
   className: "",
-  html: `<div style="position:relative;width:14px;height:22px;"><div style="position:absolute;top:0;left:0;width:14px;height:14px;background:#bd843b;border-radius:50%;border:2px solid white;box-shadow:0 1px 4px rgba(0,0,0,0.5);z-index:2;"></div><div style="position:absolute;top:6px;left:-1px;width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-top:16px solid white;z-index:1;"></div><div style="position:absolute;top:7px;left:0;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:15px solid #bd843b;z-index:1;"></div></div>`,
-  iconSize: [14, 22],
-  iconAnchor: [7, 22],
-  popupAnchor: [0, -22],
+  html: `
+  <div style="position:relative;width:28px;height:40px;">
+    <div style="position:absolute;top:0;left:2px;width:24px;height:24px;border-radius:50%;border:2px solid #bd843b;overflow:hidden;background:#fff;z-index:2;">
+      <img src="/logo.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" />
+    </div>
+    <div style="position:absolute;top:20px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:16px solid #bd843b;z-index:1;"></div>
+  </div>`,
+  iconSize: [28, 40],
+  iconAnchor: [14, 40],
+  popupAnchor: [0, -42],
 });
 
 function FitBounds() {
