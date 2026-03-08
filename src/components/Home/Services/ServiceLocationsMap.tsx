@@ -8,6 +8,7 @@ const ZOOM_LEVEL = 11;
 const ALL_BOUNDS = L.latLngBounds([
   [43.5146, -114.256],
   [48.3105, -108.5429],
+  [44.5202, -109.0238],
 ]);
 const FIT_OPTIONS: L.FitBoundsOptions = { padding: [40, 40] };
 
@@ -95,6 +96,12 @@ const airportLocations = [
     description: "9S5",
     lat: 45.8788,
     lng: -111.5692,
+  },
+  {
+    title: "Yellowstone Regional Airport (Cody)",
+    description: "KCOD",
+    lat: 44.5202,
+    lng: -109.0238,
   },
 ];
 

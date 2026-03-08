@@ -65,6 +65,11 @@ const airportsServices: Service[] = [
   { title: "Gardiner Airport", description: "29S", Icon: Plane },
   { title: "Idaho Falls Regional Airport", description: "KIDA", Icon: Plane },
   { title: "Threeforks Airport", description: "9S5", Icon: Plane },
+  {
+    title: "Yellowstone Regional Airport (Cody)",
+    description: "KCOD",
+    Icon: Plane,
+  },
 ];
 
 const exteriorServices: Service[] = [
