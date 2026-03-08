@@ -175,12 +175,6 @@ const hangerServices: Service[] = [
       "A fast, light cleaning of your aircraft's hangar space, including sweeping, dusting, cobweb removal, and mopping or deep floor cleaning to keep the area spotless and professional.",
     Icon: Warehouse,
   },
-  {
-    title: "Aircraft Dust-Off",
-    description:
-      "A quick exterior refresh to remove surface dust, fingerprints, and light debris using aviation-safe microfiber techniques. Ideal for pre-flight touch-ups or routine hangar upkeep.",
-    Icon: Sparkle,
-  },
 ];
 
 export default function Services() {
@@ -218,7 +212,7 @@ export default function Services() {
   };
 
   return (
-    <section className="min-h-screen bg-white py-16 sm:py-20 lg:py-28 px-4">
+    <section className={`${selected === "hangar" ? "min-h-0" : "min-h-screen"} bg-white py-16 sm:py-20 lg:py-28 px-4`}>
       <div className="w-full mx-auto space-y-10">
         {/* Header Section */}
         <div className="text-center space-y-2">
@@ -321,7 +315,7 @@ export default function Services() {
                 ref={(el) => {
                   itemRefs.current[idx] = el;
                 }}
-                className="border border-gray-200 p-6 sm:p-8 lg:p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left"
+                className={`border border-gray-200 p-6 sm:p-8 lg:p-12 group hover:shadow-md hover:border-[#bd843b] transition-all duration-300 text-left${visible.length === 1 ? " md:col-span-2 md:w-1/2 md:mx-auto" : ""}`}
               >
                 <div className="mb-4">
                   <Icon className="w-8 h-8 lg:w-10 lg:h-10 stroke-1 group-hover:text-[#bd843b] transition-all duration-300" />

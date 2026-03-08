@@ -50,6 +50,7 @@ const AIRPORT_OPTIONS = [
   "Gardiner Airport, 29S",
   "Threeforks Airport, 9S5",
   "Idaho Falls Regional Airport KIDA",
+  "Yellowstone Regional Airport (Cody) KCOD",
 ];
 
 function splitAirportOption(s: string) {

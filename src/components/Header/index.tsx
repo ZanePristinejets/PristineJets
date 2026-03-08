@@ -128,6 +128,10 @@ export default function Header() {
                   <span>Idaho Falls Regional Airport</span>
                   <span className="text-[11px] text-white/70">KIDA</span>
                 </li>
+                <li className="px-3 py-2 hover:bg-white/10 transition-colors flex items-center justify-between gap-2" role="menuitem">
+                  <span>Yellowstone Regional Airport (Cody)</span>
+                  <span className="text-[11px] text-white/70">KCOD</span>
+                </li>
               </ul>
             </div>
           )}
