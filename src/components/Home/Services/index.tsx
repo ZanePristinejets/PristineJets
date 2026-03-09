@@ -212,7 +212,7 @@ export default function Services() {
   };
 
   return (
-    <section className={`${selected === "hangar" ? "min-h-0" : "min-h-screen"} bg-white py-16 sm:py-20 lg:py-28 px-4`}>
+    <section className={`h-auto bg-white py-25 px-4`}>
       <div className="w-full mx-auto space-y-10">
         {/* Header Section */}
         <div className="text-center space-y-2">
