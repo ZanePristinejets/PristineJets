@@ -2,24 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export default function Header() {
   const [showAirports, setShowAirports] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setShowAirports(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <header className="absolute w-full flex justify-between items-center p-4 sm:p-5 lg:p-6 z-10">
@@ -41,30 +27,13 @@ export default function Header() {
       {/* Airports dropdown + Contact button */}
       <div className="mr-0 lg:mr-64 flex items-center gap-5 relative">
         {/* Airports dropdown trigger */}
-        <div className="relative" ref={dropdownRef}>
-          <button
-            type="button"
-            aria-haspopup="menu"
-            aria-expanded={showAirports}
-            onClick={() => setShowAirports((v) => !v)}
-            className="hover:scale-105 inline-flex items-center gap-0.5 text-white hover:text-[#bd843b] hover:cursor-pointer text-[12px] tracking-[1px] sm:tracking-[2px] transition-all duration-300"
+        <div className="relative" onMouseEnter={() => setShowAirports(true)} onMouseLeave={() => setShowAirports(false)}>
+          <Link
+            href="/locations"
+            className="hover:scale-105 inline-flex items-center text-white hover:text-[#bd843b] text-[12px] tracking-[1px] sm:tracking-[2px] transition-all duration-300"
           >
             <span className="font-semibold">LOCATIONS</span>
-            {/* Chevron down icon to the right */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className={`w-4 h-4 scale-125 mb-0.5 transition-transform duration-600 ${showAirports ? "rotate-180" : "rotate-0"}`}
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.27a.75.75 0 01.02-1.06z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </button>
+          </Link>
 
           {showAirports && (
             <div className="absolute left-1/2 top-full -translate-x-1/2 mt-3 w-80 max-w-[90vw] rounded-sm bg-stone-900/80 text-white shadow-2xl border border-white/10 backdrop-blur-md overflow-hidden z-20">
