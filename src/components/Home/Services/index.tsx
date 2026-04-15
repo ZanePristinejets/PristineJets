@@ -26,6 +26,8 @@ import {
   Dog,
   Warehouse,
   Plane,
+  BrushCleaning,
+  ShieldPlus,
 } from "lucide-react";
 
 type Service = {
@@ -86,10 +88,28 @@ const exteriorServices: Service[] = [
     Icon: Droplet,
   },
   {
-    title: "Wax Application",
+    title: "Wax",
     description:
-      "Premium aviation-grade wax that enhances shine, protects paint from UV damage, and improves aerodynamic smoothness.",
+      "A wax is a quick enhancement applied during the wash process to boost shine and surface slickness. It provides light, short-term protection against contaminants and is primarily cosmetic.\n \nDurability: up to 6 months depending on use and washing. Best to wash aircraft every 2 months or sooner.",
+    Icon: Shield,
+  },
+  {
+    title: "Ceramic Coating",
+    description:
+      "A ceramic coating is a professionally applied treatment that chemically bonds to the aircraft’s surface, forming a hard, ultra-smooth protective layer. It provides long-term defense against UV exposure, oxidation, corrosion, exhaust soot, and environmental contaminants, while delivering a deep gloss finish and easier maintenance.\n\nDurability: up to 5 years, with real-world performance varying based on use, storage, and maintenance washes.",
+    Icon: ShieldPlus,
+  },
+  {
+    title: "Hybrid Ceramic Coating Wax",
+    description:
+      "A hybrid ceramic coating is a spray-applied sealant that blends SiO₂ (silica) with advanced polymers to create a durable, hydrophobic layer. It enhances gloss, repels water, and helps prevent bugs, dirt, and contaminants from sticking to the surface.\n \nDurability: up to 8 - 12 months depending on use and storage.",
     Icon: BrickWallShield,
+  },
+  {
+    title: "Polish",
+    description:
+      "Polishing is a corrective process that removes oxidation, light corrosion, and surface imperfections while restoring clarity and depth to the finish. It enhances gloss and prepares the surface for higher-level protection.\n \nDurability: up to 6 months on its own, longer when paired with a protective coating and regular washes.",
+    Icon: BrushCleaning,
   },
   {
     title: "Brightwork Polishing",
@@ -108,12 +128,6 @@ const exteriorServices: Service[] = [
     description:
       "Removal of insect buildup from leading edges, nose surfaces, and windshield areas for a clean appearance and improved aerodynamics.",
     Icon: Bug,
-  },
-  {
-    title: "Paint Protection",
-    description:
-      "Application of coatings to protect the aircraft’s finish from UV exposure, oxidation, and environmental contaminants.",
-    Icon: Shield,
   },
   {
     title: "Degreasing",
@@ -301,7 +315,10 @@ export default function Services() {
             </div>
             {/* Map — right */}
             <div className="flex-1">
-              <ServiceLocationsMap selectedCode={selectedLocation} onReset={() => setSelectedLocation(null)} />
+              <ServiceLocationsMap
+                selectedCode={selectedLocation}
+                onReset={() => setSelectedLocation(null)}
+              />
             </div>
           </div>
         ) : (
@@ -323,7 +340,7 @@ export default function Services() {
                 <h3 className="text-base font-semibold tracking-[2px] sm:tracking-[3px] text-gray-900 mb-3 uppercase">
                   {title}
                 </h3>
-                <p className="text-gray-600 text-[13px] leading-relaxed">
+                <p className="text-gray-600 text-[13px] leading-relaxed whitespace-pre-line">
                   {description}
                 </p>
               </div>

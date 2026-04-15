@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const airports = [
   {
     name: "Bozeman Yellowstone International Airport",
@@ -78,6 +76,16 @@ const airports = [
   },
 ];
 
+const badgedAirportCodes = ["KBZN", "KMSO", "KJAC", "KGPI", "KBIL", "KHLN"];
+
+const badgedAirports = badgedAirportCodes
+  .map((code) => airports.find((airport) => airport.code === code))
+  .filter((airport): airport is (typeof airports)[number] => Boolean(airport));
+
+const serviceAirports = airports.filter(
+  (airport) => !badgedAirportCodes.includes(airport.code)
+);
+
 export default function Locations() {
   return (
     <div className="relative w-full h-full bg-white">
@@ -119,12 +127,32 @@ export default function Locations() {
       <section className="bg-white text-stone-900 px-6 py-16 sm:py-20">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Service Areas</div>
-            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">AIRPORTS WE SERVICE</h2>
+            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Credentials</div>
+            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">AIRPORTS WE'RE BADGED AT</h2>
           </div>
 
           <ul className="divide-y divide-stone-200 border border-stone-200 rounded-sm overflow-hidden">
-            {airports.map((airport) => (
+            {badgedAirports.map((airport) => (
+              <li
+                key={airport.code}
+                className="flex items-center justify-between gap-4 px-5 py-3.5 hover:bg-stone-50 transition-colors"
+              >
+                <div className="min-w-0">
+                  <p className="text-sm text-stone-700">{airport.name}</p>
+                  <p className="text-xs text-stone-500 mt-1">{airport.address}</p>
+                </div>
+                <span className="text-[12px] tracking-[2px] text-[#bd843b] shrink-0">{airport.code}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="text-center space-y-2 pt-4">
+            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Service Areas</div>
+            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">OTHER AIRPORTS</h2>
+          </div>
+
+          <ul className="divide-y divide-stone-200 border border-stone-200 rounded-sm overflow-hidden">
+            {serviceAirports.map((airport) => (
               <li
                 key={airport.code}
                 className="flex items-center justify-between gap-4 px-5 py-3.5 hover:bg-stone-50 transition-colors"
