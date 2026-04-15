@@ -128,7 +128,7 @@ export default function Locations() {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-2">
             <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Credentials</div>
-            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">AIRPORTS WE'RE BADGED AT</h2>
+            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">AIRPORTS WE&apos;RE BADGED AT</h2>
           </div>
 
           <ul className="divide-y divide-stone-200 border border-stone-200 rounded-sm overflow-hidden">
