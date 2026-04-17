@@ -72,6 +72,24 @@ const airportsServices: Service[] = [
     description: "KCOD",
     Icon: Plane,
   },
+  { title: "Ravalli County Airport", description: "KHRF", Icon: Plane },
+  { title: "Red Lodge Airport", description: "KRED", Icon: Plane },
+  { title: "Big Timber Airport", description: "6S0", Icon: Plane },
+  { title: "Dillon Airport", description: "KDLN", Icon: Plane },
+  { title: "Polson Airport", description: "8S1", Icon: Plane },
+  { title: "Mineral County Memorial Airport", description: "9S4", Icon: Plane },
+  { title: "Lewistown Municipal Airport", description: "KLWT", Icon: Plane },
+  { title: "Hot Springs Airport", description: "S09", Icon: Plane },
+  { title: "Thompson Falls Airport", description: "KTHM", Icon: Plane },
+  { title: "Powell Municipal Airport", description: "KPOY", Icon: Plane },
+  { title: "Afton Municipal Airport", description: "KAFO", Icon: Plane },
+  { title: "Sheridan County Airport", description: "KSHR", Icon: Plane },
+  { title: "Casper / Natrona Airport", description: "KCPR", Icon: Plane },
+  {
+    title: "Rexburg-Madison County Airport",
+    description: "KRXE",
+    Icon: Plane,
+  },
 ];
 
 const exteriorServices: Service[] = [

@@ -49,7 +49,7 @@ export default function Testimonials() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="h-auto py-25 w-full flex items-center justify-center px-4">
+    <section className="h-auto py-25 w-full flex items-center justify-center px-4 bg-white">
       <div className="w-full flex flex-col items-center justify-center mx-auto text-center relative space-y-3 md:space-y-4">
         {/* Header */}
         <div className="pb-10 md:pb-14">

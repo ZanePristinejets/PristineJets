@@ -74,6 +74,76 @@ const airports = [
     code: "KCOD",
     address: "2101 Roger Sedam Dr, Cody, WY 82414",
   },
+  {
+    name: "Ravalli County Airport",
+    code: "KHRF",
+    address: "203 Airport Rd, Hamilton, MT 59840",
+  },
+  {
+    name: "Red Lodge Airport",
+    code: "KRED",
+    address: "1 N Airport Rd, Red Lodge, MT 59068",
+  },
+  {
+    name: "Big Timber Airport",
+    code: "6S0",
+    address: "168 Airport Rd, Big Timber, MT 59011",
+  },
+  {
+    name: "Dillon Airport",
+    code: "KDLN",
+    address: "2400 Airport Rd, Dillon, MT 59725",
+  },
+  {
+    name: "Polson Airport",
+    code: "8S1",
+    address: "Polson, MT 59860",
+  },
+  {
+    name: "Mineral County Memorial Airport",
+    code: "9S4",
+    address: "415 Aileron Way, Superior, MT 59872",
+  },
+  {
+    name: "Lewistown Municipal Airport",
+    code: "KLWT",
+    address: "1601 D St, Lewistown, MT 59457",
+  },
+  {
+    name: "Hot Springs Airport",
+    code: "S09",
+    address: "48 Little Bitteroot Rd, Hot Springs, MT 59845",
+  },
+  {
+    name: "Thompson Falls Airport",
+    code: "KTHM",
+    address: "25 Airport Wy, Thompson Falls, MT 59873",
+  },
+  {
+    name: "Powell Municipal Airport",
+    code: "KPOY",
+    address: "22 Rd 9, Powell, WY 82435",
+  },
+  {
+    name: "Afton Municipal Airport",
+    code: "KAFO",
+    address: "322 Airport Rd #1, Afton, WY 83110",
+  },
+  {
+    name: "Sheridan County Airport",
+    code: "KSHR",
+    address: "908 W Brundage Ln, Sheridan, WY 82801",
+  },
+  {
+    name: "Casper / Natrona Airport",
+    code: "KCPR",
+    address: "8500 Airport Pkwy, Casper, WY 82604",
+  },
+  {
+    name: "Rexburg-Madison County Airport",
+    code: "KRXE",
+    address: "296 Airport Rd, Rexburg, ID 83440",
+  },
 ];
 
 const badgedAirportCodes = ["KBZN", "KMSO", "KJAC", "KGPI", "KBIL", "KHLN"];

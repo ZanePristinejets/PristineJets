@@ -103,6 +103,90 @@ const airportLocations = [
     lat: 44.5202,
     lng: -109.0238,
   },
+  {
+    title: "Ravalli County Airport",
+    description: "KHRF",
+    lat: 46.2484,
+    lng: -114.143,
+  },
+  {
+    title: "Red Lodge Airport",
+    description: "KRED",
+    lat: 45.1187,
+    lng: -109.0673,
+  },
+  {
+    title: "Big Timber Airport",
+    description: "6S0",
+    lat: 45.8289,
+    lng: -109.9573,
+  },
+  {
+    title: "Dillon Airport",
+    description: "KDLN",
+    lat: 45.2553,
+    lng: -112.553,
+  },
+  {
+    title: "Polson Airport",
+    description: "8S1",
+    lat: 47.6946,
+    lng: -114.158,
+  },
+  {
+    title: "Mineral County Memorial Airport",
+    description: "9S4",
+    lat: 47.1755,
+    lng: -114.88,
+  },
+  {
+    title: "Lewistown Municipal Airport",
+    description: "KLWT",
+    lat: 47.0493,
+    lng: -109.467,
+  },
+  {
+    title: "Hot Springs Airport",
+    description: "S09",
+    lat: 47.5956,
+    lng: -114.6712,
+  },
+  {
+    title: "Thompson Falls Airport",
+    description: "KTHM",
+    lat: 47.5746,
+    lng: -115.26,
+  },
+  {
+    title: "Powell Municipal Airport",
+    description: "KPOY",
+    lat: 44.8683,
+    lng: -108.7929,
+  },
+  {
+    title: "Afton Municipal Airport",
+    description: "KAFO",
+    lat: 42.7122,
+    lng: -110.9417,
+  },
+  {
+    title: "Sheridan County Airport",
+    description: "KSHR",
+    lat: 44.7692,
+    lng: -106.98,
+  },
+  {
+    title: "Casper / Natrona Airport",
+    description: "KCPR",
+    lat: 42.908,
+    lng: -106.4647,
+  },
+  {
+    title: "Rexburg-Madison County Airport",
+    description: "KRXE",
+    lat: 43.8339,
+    lng: -111.805,
+  },
 ];
 
 const pinIcon = L.divIcon({

@@ -1,4 +1,5 @@
 import Hero from "./Hero";
+// import CaseResults from "./CaseResults";
 import Services from "./Services";
 import About from "./About";
 import Contact from "../Contact";
@@ -9,6 +10,7 @@ export default function Home() {
     <div>
       <Hero />
       <Services />
+      {/* <CaseResults /> */}
       <About />
       <Testimonials />
       <Contact />

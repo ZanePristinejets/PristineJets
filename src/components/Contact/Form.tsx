@@ -51,6 +51,20 @@ const AIRPORT_OPTIONS = [
   "Threeforks Airport, 9S5",
   "Idaho Falls Regional Airport KIDA",
   "Yellowstone Regional Airport (Cody) KCOD",
+  "Ravalli County Airport KHRF",
+  "Red Lodge Airport KRED",
+  "Big Timber Airport 6S0",
+  "Dillon Airport KDLN",
+  "Polson Airport 8S1",
+  "Mineral County Memorial Airport 9S4",
+  "Lewistown Municipal Airport KLWT",
+  "Hot Springs Airport S09",
+  "Thompson Falls Airport KTHM",
+  "Powell Municipal Airport KPOY",
+  "Afton Municipal Airport KAFO",
+  "Sheridan County Airport KSHR",
+  "Casper / Natrona Airport KCPR",
+  "Rexburg-Madison County Airport KRXE",
 ];
 
 function splitAirportOption(s: string) {
