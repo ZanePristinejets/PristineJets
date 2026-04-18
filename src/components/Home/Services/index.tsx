@@ -90,6 +90,10 @@ const airportsServices: Service[] = [
     description: "KRXE",
     Icon: Plane,
   },
+  { title: "Stevensville Airport", description: "32S", Icon: Plane },
+  { title: "Ronan Airport", description: "7S0", Icon: Plane },
+  { title: "Libby Airport", description: "S59", Icon: Plane },
+  { title: "Kalispell City Airport", description: "S27", Icon: Plane },
 ];
 
 const exteriorServices: Service[] = [

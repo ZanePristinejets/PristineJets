@@ -112,14 +112,14 @@ const airportLocations = [
   {
     title: "Red Lodge Airport",
     description: "KRED",
-    lat: 45.1187,
-    lng: -109.0673,
+    lat: 45.1848,
+    lng: -109.2577,
   },
   {
     title: "Big Timber Airport",
     description: "6S0",
-    lat: 45.8289,
-    lng: -109.9573,
+    lat: 45.8065,
+    lng: -109.9783,
   },
   {
     title: "Dillon Airport",
@@ -136,8 +136,8 @@ const airportLocations = [
   {
     title: "Mineral County Memorial Airport",
     description: "9S4",
-    lat: 47.1755,
-    lng: -114.88,
+    lat: 47.1683,
+    lng: -114.8537,
   },
   {
     title: "Lewistown Municipal Airport",
@@ -148,8 +148,8 @@ const airportLocations = [
   {
     title: "Hot Springs Airport",
     description: "S09",
-    lat: 47.5956,
-    lng: -114.6712,
+    lat: 47.6124,
+    lng: -114.6135,
   },
   {
     title: "Thompson Falls Airport",
@@ -186,6 +186,30 @@ const airportLocations = [
     description: "KRXE",
     lat: 43.8339,
     lng: -111.805,
+  },
+  {
+    title: "Stevensville Airport",
+    description: "32S",
+    lat: 46.5251,
+    lng: -114.0528,
+  },
+  {
+    title: "Ronan Airport",
+    description: "7S0",
+    lat: 47.5672,
+    lng: -114.1011,
+  },
+  {
+    title: "Libby Airport",
+    description: "S59",
+    lat: 48.2838,
+    lng: -115.4902,
+  },
+  {
+    title: "Kalispell City Airport",
+    description: "S27",
+    lat: 48.1786,
+    lng: -114.3037,
   },
 ];
 

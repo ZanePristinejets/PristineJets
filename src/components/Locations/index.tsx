@@ -144,6 +144,26 @@ const airports = [
     code: "KRXE",
     address: "296 Airport Rd, Rexburg, ID 83440",
   },
+  {
+    name: "Stevensville Airport",
+    code: "32S",
+    address: "3945 Flying Ln, Stevensville, MT 59870",
+  },
+  {
+    name: "Ronan Airport",
+    code: "7S0",
+    address: "35605 Ronan Airport Rd, Ronan, MT 59864",
+  },
+  {
+    name: "Libby Airport",
+    code: "S59",
+    address: "4986 Farm to Market Rd, Libby, MT 59923",
+  },
+  {
+    name: "Kalispell City Airport",
+    code: "S27",
+    address: "1880 Highway U.S. 93 S, Kalispell, MT 59901",
+  },
 ];
 
 const badgedAirportCodes = ["KBZN", "KMSO", "KJAC", "KGPI", "KBIL", "KHLN"];
