@@ -173,43 +173,24 @@ const badgedAirports = badgedAirportCodes
   .filter((airport): airport is (typeof airports)[number] => Boolean(airport));
 
 const serviceAirports = airports.filter(
-  (airport) => !badgedAirportCodes.includes(airport.code)
+  (airport) => !badgedAirportCodes.includes(airport.code),
 );
 
 export default function Locations() {
   return (
     <div className="relative w-full h-full bg-white">
-      {/* Hero Section */}
-      {/* <section className="h-[25vh] w-full relative overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/wiping-jet-counter.webp"
-            alt="Pristine Jets service location"
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            className="object-cover object-[80%_center] sm:object-center"
-          />
-          <div className="absolute inset-0 bg-black/75" />
-        </div>
-
-        <div className="relative w-full flex flex-col items-center justify-center text-center px-4 py-20 pt-32">
-          <div className="text-[#bd843b] text-[11px] tracking-[5px] uppercase mb-3">
-            WHERE WE OPERATE
-          </div>
-          <h1 className="font-serif text-white text-[24px] sm:text-[30px] xl:text-[40px] tracking-[8px] sm:tracking-[14px] leading-tight">
-            LOCATIONS
-          </h1>
-        </div>
-      </section> */}
-
       {/* Office Location */}
       <section className="bg-stone-950 text-white px-6 py-16 sm:py-20">
         <div className="max-w-4xl mx-auto text-center space-y-4 mt-10">
-          <div className="text-[#bd843b] text-[10px] sm:text-[12px] tracking-[4px] uppercase">Our Office</div>
-          <h2 className="font-serif text-[20px] sm:text-[30px] tracking-[6px]">PRISTINE JETS</h2>
-          <p className="text-gray-300 text-sm sm:text-md tracking-[1px]">72450 Tarmac Trail, Belgrade, MT 59714</p>
+          <h1 className="text-[#bd843b] text-[10px] sm:text-[12px] tracking-[4px] uppercase">
+            Our Office
+          </h1>
+          <p className="font-serif text-[20px] sm:text-[30px] xl:text-[40px] tracking-[8px] sm:tracking-[14px] leading-tight">
+            PRISTINE JETS
+          </p>
+          <p className="text-gray-300 text-sm sm:text-md tracking-[1px]">
+            72450 Tarmac Trail, Belgrade, MT 59714
+          </p>
         </div>
       </section>
 
@@ -217,8 +198,12 @@ export default function Locations() {
       <section className="bg-white text-stone-900 px-6 py-16 sm:py-20">
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="text-center space-y-2">
-            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Credentials</div>
-            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">AIRPORTS WE&apos;RE BADGED AT</h2>
+            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">
+              Credentials
+            </div>
+            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">
+              AIRPORTS WE&apos;RE BADGED AT
+            </h2>
           </div>
 
           <ul className="divide-y divide-stone-200 border border-stone-200 rounded-sm overflow-hidden">
@@ -229,16 +214,24 @@ export default function Locations() {
               >
                 <div className="min-w-0">
                   <p className="text-sm text-stone-700">{airport.name}</p>
-                  <p className="text-xs text-stone-500 mt-1">{airport.address}</p>
+                  <p className="text-xs text-stone-500 mt-1">
+                    {airport.address}
+                  </p>
                 </div>
-                <span className="text-[12px] tracking-[2px] text-[#bd843b] shrink-0">{airport.code}</span>
+                <span className="text-[12px] tracking-[2px] text-[#bd843b] shrink-0">
+                  {airport.code}
+                </span>
               </li>
             ))}
           </ul>
 
           <div className="text-center space-y-2 pt-4">
-            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">Service Areas</div>
-            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">OTHER AIRPORTS</h2>
+            <div className="text-[#bd843b] text-[11px] tracking-[4px] uppercase">
+              Service Areas
+            </div>
+            <h2 className="font-serif text-[20px] sm:text-[26px] tracking-[6px]">
+              OTHER AIRPORTS
+            </h2>
           </div>
 
           <ul className="divide-y divide-stone-200 border border-stone-200 rounded-sm overflow-hidden">
@@ -249,9 +242,13 @@ export default function Locations() {
               >
                 <div className="min-w-0">
                   <p className="text-sm text-stone-700">{airport.name}</p>
-                  <p className="text-xs text-stone-500 mt-1">{airport.address}</p>
+                  <p className="text-xs text-stone-500 mt-1">
+                    {airport.address}
+                  </p>
                 </div>
-                <span className="text-[12px] tracking-[2px] text-[#bd843b] shrink-0">{airport.code}</span>
+                <span className="text-[12px] tracking-[2px] text-[#bd843b] shrink-0">
+                  {airport.code}
+                </span>
               </li>
             ))}
           </ul>

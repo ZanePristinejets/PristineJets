@@ -213,10 +213,10 @@ const hangerServices: Service[] = [
   },
 ];
 
-export default function Services() {
+export default function Services({ hideLocations = false, hideHeader = false }: { hideLocations?: boolean; hideHeader?: boolean }) {
   const [selected, setSelected] = useState<
     "locations" | "exterior" | "interior" | "hangar"
-  >("locations");
+  >(hideLocations ? "interior" : "locations");
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<
     Record<"locations" | "exterior" | "interior" | "hangar", boolean>
@@ -251,7 +251,7 @@ export default function Services() {
     <section className={`h-auto bg-white py-25 px-4`}>
       <div className="w-full mx-auto space-y-10">
         {/* Header Section */}
-        <div className="text-center space-y-2">
+        {!hideHeader && <div className="text-center space-y-2">
           <p className="text-[#bd843b] text-[12px] tracking-[3px] sm:tracking-[4px]">
             METICULOUS CARE, INSIDE AND OUT
           </p>
@@ -264,7 +264,7 @@ export default function Services() {
             that keep your aircraft in top condition. Available 24/7 in Bozeman
             and all locations, we bring meticulous care wherever your jet is.
           </p>
-        </div>
+        </div>}
 
         {/* Tabs */}
         <div
@@ -276,7 +276,7 @@ export default function Services() {
             { key: "interior" as const, label: "INTERIOR" },
             { key: "exterior" as const, label: "EXTERIOR" },
             { key: "hangar" as const, label: "HANGAR" },
-          ].map((tab) => {
+          ].filter((tab) => !(hideLocations && tab.key === "locations")).map((tab) => {
             const active = selected === tab.key;
             return (
               <button
@@ -300,7 +300,7 @@ export default function Services() {
         </div>
 
         {/* Services: Locations (side-by-side) vs Others (original grid) */}
-        {selected === "locations" ? (
+        {selected === "locations" && !hideLocations ? (
           <div
             ref={gridTopRef}
             className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-stretch"

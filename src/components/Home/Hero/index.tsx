@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <section className="min-h-[75vh] md:min-h-screen w-full relative overflow-hidden">
+    <section className="min-h-[85vh] sm:min-h-[75vh] md:min-h-screen w-full relative overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -19,7 +19,7 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="relative min-h-[75vh] md:min-h-screen w-full flex flex-col">
+      <div className="relative min-h-[85vh] sm:min-h-[75vh] md:min-h-screen w-full flex flex-col">
         {/* Main Content - centered */}
         <div className="flex-1 flex flex-col items-center justify-center text-center space-y-4 sm:space-y-3 px-4">
           <div className="text-[#bd843b] text-[12px] tracking-[4px] sm:text-[14px] sm:tracking-[5px] lg:text-[16px] lg:tracking-[7px]">
