@@ -213,10 +213,10 @@ const hangerServices: Service[] = [
   },
 ];
 
-export default function Services({ hideLocations = false, hideHeader = false }: { hideLocations?: boolean; hideHeader?: boolean }) {
+export default function Services({ focus = "locations", hideHeader = false }: { focus?: "locations" | "exterior" | "interior" | "hangar"; hideHeader?: boolean }) {
   const [selected, setSelected] = useState<
     "locations" | "exterior" | "interior" | "hangar"
-  >(hideLocations ? "interior" : "locations");
+  >(focus);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<
     Record<"locations" | "exterior" | "interior" | "hangar", boolean>
@@ -276,7 +276,7 @@ export default function Services({ hideLocations = false, hideHeader = false }: 
             { key: "interior" as const, label: "INTERIOR" },
             { key: "exterior" as const, label: "EXTERIOR" },
             { key: "hangar" as const, label: "HANGAR" },
-          ].filter((tab) => !(hideLocations && tab.key === "locations")).map((tab) => {
+          ].map((tab) => {
             const active = selected === tab.key;
             return (
               <button
@@ -300,7 +300,7 @@ export default function Services({ hideLocations = false, hideHeader = false }: 
         </div>
 
         {/* Services: Locations (side-by-side) vs Others (original grid) */}
-        {selected === "locations" && !hideLocations ? (
+        {selected === "locations" ? (
           <div
             ref={gridTopRef}
             className="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 items-stretch"

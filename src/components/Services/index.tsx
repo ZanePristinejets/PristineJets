@@ -22,7 +22,7 @@ export default function Services() {
       </section>
 
       {/* Services component */}
-      <HomeServices hideLocations hideHeader />
+      <HomeServices focus="interior" hideHeader />
     </div>
   );
 }
