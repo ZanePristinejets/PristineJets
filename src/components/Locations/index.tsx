@@ -189,7 +189,7 @@ export default function Locations() {
             PRISTINE JETS
           </p>
           <p className="text-gray-300 text-sm sm:text-md tracking-[1px]">
-            72450 Tarmac Trail, Belgrade, MT 59714
+            74520 Tarmac Trail, Belgrade, MT 59714
           </p>
         </div>
       </section>
